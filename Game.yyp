@@ -1,6 +1,12 @@
 {
   "resources": [
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"test_bg","path":"sprites/test_bg/test_bg.yy",},"order":2,},
+    {"id":{"name":"oPlayer_1","path":"objects/oPlayer_1/oPlayer_1.yy",},"order":0,},
+    {"id":{"name":"ScriptAnimateSprite","path":"scripts/ScriptAnimateSprite/ScriptAnimateSprite.yy",},"order":0,},
+    {"id":{"name":"sPlayer1_move","path":"sprites/sPlayer1_move/sPlayer1_move.yy",},"order":1,},
+    {"id":{"name":"MACROS","path":"scripts/MACROS/MACROS.yy",},"order":1,},
+    {"id":{"name":"sPlayer1_idle","path":"sprites/sPlayer1_idle/sPlayer1_idle.yy",},"order":0,},
+    {"id":{"name":"Level_0","path":"rooms/Level_0/Level_0.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Main","path":"options/main/options_main.yy",},
@@ -14,7 +20,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Level_0","path":"rooms/Level_0/Level_0.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
