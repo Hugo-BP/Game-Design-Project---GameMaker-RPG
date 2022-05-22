@@ -1,3 +1,0 @@
-#macro FRAME_RATE 60
-#macro TILESIZE 20
-
