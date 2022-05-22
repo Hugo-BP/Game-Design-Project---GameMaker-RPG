@@ -1,4 +1,4 @@
-globalvar global_arr_players, global_arr_enemies, global_arr_inv;
+globalvar global_arr_players, global_arr_enemies, global_arr_inv, global_arr_spellbook;
 
 
 //enum ITEM {
@@ -17,6 +17,13 @@ globalvar global_arr_players, global_arr_enemies, global_arr_inv;
 //global.dictionary[ITEM.SMALL_MANA_POTION, STAT.EFFECT] = scr_ManaHeal;
 //global.dictionary[ITEM.SMALL_MANA_POTION, STAT.POWER] = 25;
 //...
+
+//SPELLBOOKS
+// SPELLBOOK MENU TEXT
+global_arr_spellbook[HAS_SPELL_HEAL] = "HEAL";
+global_arr_spellbook[HAS_SPELL_FIREBALL] = "FIREBALL";
+global_arr_spellbook[HAS_SPELL_STUN] = "STUN";
+global_arr_spellbook[HAS_SPELL_CORRUPT] = "CORRUPT";
 
 //INVENTORIES
 // global_arr_inv[player, inv_slot_x] = item
@@ -48,8 +55,8 @@ global_arr_inv[3,4] = "Holy Elixir";
 global_arr_players[0, NAME] = "RED";
 global_arr_players[0, CLASS] = "Knight";
 global_arr_players[0, LEVEL] = 1;
-global_arr_players[0, MAX_HP] = 1500;
-global_arr_players[0, CURR_HP] = 1500;
+global_arr_players[0, MAX_HP] = 250;
+global_arr_players[0, CURR_HP] = 250;
 global_arr_players[0, MAX_AP] = 20;
 global_arr_players[0, CURR_AP] = 20;
 global_arr_players[0, EXP] = 0;
@@ -131,7 +138,7 @@ global_arr_enemies[0, MAX_AP] = 20;
 global_arr_enemies[0, CURR_AP] = 20;
 global_arr_enemies[0, EXP] = 50;
 global_arr_enemies[0, INITIATIVE] = 100;
-global_arr_enemies[0, MAX_WEAPON_DAMAGE] = 25;
+global_arr_enemies[0, MAX_WEAPON_DAMAGE] = 2500;
 global_arr_enemies[0, ANIM_IDLE] = sprSkelKnightIdle;
 global_arr_enemies[0, ANIM_ATTACK] = sprDemonAttack;
 
@@ -144,7 +151,7 @@ global_arr_enemies[1, MAX_AP] = 20;
 global_arr_enemies[1, CURR_AP] = 20;
 global_arr_enemies[1, EXP] = 50;
 global_arr_enemies[1, INITIATIVE] = 100;
-global_arr_enemies[1, MAX_WEAPON_DAMAGE] = 25;
+global_arr_enemies[1, MAX_WEAPON_DAMAGE] = 2500;
 global_arr_enemies[1, ANIM_IDLE] = sprSkelArcherIdle;
 global_arr_enemies[1, ANIM_ATTACK] = sprDemonAttack;
 
@@ -157,7 +164,7 @@ global_arr_enemies[2, MAX_AP] = 20;
 global_arr_enemies[2, CURR_AP] = 20;
 global_arr_enemies[2, EXP] = 100;
 global_arr_enemies[2, INITIATIVE] = 200;
-global_arr_enemies[2, MAX_WEAPON_DAMAGE] = 50;
+global_arr_enemies[2, MAX_WEAPON_DAMAGE] = 2500;
 global_arr_enemies[2, ANIM_IDLE] = sprDemonIdle;
 global_arr_enemies[2, ANIM_ATTACK] = sprDemonAttack;
 

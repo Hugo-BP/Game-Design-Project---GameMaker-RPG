@@ -68,7 +68,7 @@ switch(state)
 			
 			npc.index = i;
 			npc.class = global_arr_enemies[npc.index, CLASS];		// TODO how to handle npcs? how do i know which npcs to spawn into battle? cant use global for that..
-			npc.npc_curr_hp = global_arr_enemies[npc.index, MAX_HP];
+			npc.npc_curr_hp = global_arr_enemies[npc.index, CURR_HP];
 			npc.npc_max_hp = global_arr_enemies[npc.index, MAX_HP];
 			npc.npc_damage = global_arr_enemies[npc.index, MAX_WEAPON_DAMAGE];
 			
@@ -144,6 +144,7 @@ switch(state)
 		turn_status = INIT;
 		
 		// battle manager ready
+		end_timer = 0;
 		state = READY;
 	break;
 	#endregion
@@ -201,8 +202,7 @@ switch(state)
 						ds_list_add(other.ds_npcs, id);
 					}
 				}
-				
-				
+
 				menu_state = DECISION_MENU; 
 				menu_option_index = 0;
 				
@@ -527,15 +527,27 @@ switch(state)
 						// RUN AWAY SELECTED
 						if (menu_option_index == 4)
 						{
-							// If not running away yet
-							if (menu_option_state != RUN)
+							// 50 50 % chance 
+							run_chance = choose("RUN","FAIL");
+							if (run_chance == "RUN")
 							{
-								menu_option_state = RUN;
-								show_debug_message("I tried to run away");
+								// GTFO
+								state = BATTLE_END;
+								end_text = "You manage to run away...";
 							}
 							else
 							{
+								// SKIP TURN
+								ds_list_delete(ds_players, 0);
+								selected_player++;
+								
+								// RESET MENUS
+								menu_state = DECISION_MENU;
 								menu_option_state = DECIDING;
+								menu_option_index = 0;
+								selected_target = 0;
+								curr_target = 0;
+								magic_menu_state = CHOOSING_SPELL;
 							}
 						}
 					}
@@ -632,12 +644,6 @@ switch(state)
 								
 							}
 						}
-					}
-					
-					// DEFEND
-					if (menu_option_state == DEFEND)
-					{
-						show_debug_message("DEFEND");
 					}
 					
 					// SPELL ITERATION - ITERATION BETWEEN SPELLS
@@ -960,8 +966,28 @@ switch(state)
 	break;
 }
 	
+// RAN AWAY / NPC DIED / PLAYER DIED
+// HANDLE BATTLE END!
+if (state == BATTLE_END)
+{
+	// avoid case of player spam clicking space
+	end_timer++
+	// if press continue
+	if (keyboard_check_pressed(vk_space) and end_timer > room_speed*5)
+	{
+		// Clean old objects
+		with (objPlayer)
+		{
+			instance_destroy();
+		}
+		with (objNPC_Enemy)
+		{
+			instance_destroy();
+		}
+		instance_destroy();
 	
-	
+	}
+}
 	
 	
 	

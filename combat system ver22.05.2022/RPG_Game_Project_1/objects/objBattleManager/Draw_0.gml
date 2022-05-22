@@ -62,7 +62,7 @@ if (menu_state == DECISION_MENU)
 			{
 				// MENU
 				var spell_id = ds_list_find_value(ds_spellbook, spells);
-				var spell_name = spell_menu_arr[spell_id];
+				var spell_name = global_arr_spellbook[spell_id];
 				
 				draw_text(spl_x, spl_y + (spells * (font_size - BUFFER)), spell_name);
 				
@@ -138,6 +138,17 @@ for (var i=0 ; i < n_players ; i++)
 }
 
 
+
+if (state == BATTLE_END)
+{
+	//draw_set_halign(fa_center);
+	//draw_set_valign(fa_middle);
+	draw_set_color(c_white);
+
+	draw_text(room_width/3, room_height/3, end_text);
+	draw_text((room_width/3) + (font_size - BUFFER)*3, (room_height/3)+(font_size - BUFFER + 1), "Press Space to Continue...");
+
+}
 
 
 

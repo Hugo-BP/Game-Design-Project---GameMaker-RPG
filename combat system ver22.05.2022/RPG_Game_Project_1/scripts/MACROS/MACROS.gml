@@ -9,6 +9,9 @@
 // STATES USED BY OBJECTS ( NPC / PLAYER / BATTLE MANAGER / ETC )
 #macro INIT 0   // initialize object
 #macro READY 1  // object ready 
+#macro BATTLE_END 2 // run away / every1 died
+#macro ROAMING 3 // is in main world
+
 
 // MENU possible menus
 #macro DECISION_MENU 0

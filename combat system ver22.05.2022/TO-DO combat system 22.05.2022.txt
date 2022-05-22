@@ -1,0 +1,25 @@
+
+IMPORTANT TODOs
+
+Dev inventory further - usage since rn its just a basic placeholder, only hp pots have effect
+
+Give player XP etc when battle is won and players are transferred to main world
+
+Send Players to game over screen if dead, with options "exit game, load game, main screen"
+
+Send players to main world with no rewards if successful run away
+
+
+
+
+
+AESTHETICS and other SECONDARY TODOs
+
+AP stat is unused - should be used for magic spells. This is not important RN since game is meant
+to be a DEMO to showcase gameplay. This would take time to implement too. 
+
+Rework Spellbook to be more modular ex. save an array with data inside of each spell in the global
+spellbook array so it holds more than just the spell name (rn spell damage is based off weapon damage) 
+
+Lots of animations need to be added (spells, attack, diff sprites, dead, etc) - meh
+

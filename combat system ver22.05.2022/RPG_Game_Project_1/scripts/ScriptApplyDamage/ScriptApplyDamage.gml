@@ -11,7 +11,8 @@ function ScriptApplyDamage(final_damage, target, attack_type)
 	{
 		// target is NPC
 		
-		if (target.npc_curr_hp-final_damage > target.npc_max_hp)
+		// check if overhealed
+		if (attack_type == "HEAL" and target.npc_curr_hp-final_damage > target.npc_max_hp)
 		{
 			var overheal = (target.npc_curr_hp - final_damage) mod target.npc_max_hp;
 			final_damage += overheal;
@@ -41,6 +42,16 @@ function ScriptApplyDamage(final_damage, target, attack_type)
 			target.npc_curr_hp = 0;
 			target.is_dead = true;
 			target.is_corrupted = false;
+			
+			// check if all dead
+			
+			if ( ds_list_size(ds_selectable_npc) == 0)
+			{
+				objBattleManager.state = BATTLE_END;
+				objBattleManager.end_text = "VICTORY!";
+			}
+			
+			
 		}
 		
 		if (attack_type == "HEAL")
@@ -69,7 +80,7 @@ function ScriptApplyDamage(final_damage, target, attack_type)
 		// target is PLAYER
 		
 		// check if overhealed
-		if (global_arr_players[target.index, CURR_HP]-final_damage > global_arr_players[target.index, MAX_HP])
+		if (attack_type == "HEAL" and global_arr_players[target.index, CURR_HP]-final_damage > global_arr_players[target.index, MAX_HP])
 		{
 			var overheal = (global_arr_players[target.index, CURR_HP] - final_damage) mod global_arr_players[target.index, MAX_HP];
 			final_damage += overheal;
@@ -95,6 +106,12 @@ function ScriptApplyDamage(final_damage, target, attack_type)
 			global_arr_players[target.index, CURR_HP] = 0;
 			target.is_dead = true;
 			target.is_corrupted = false;
+			
+			if ( ds_list_size(ds_selectable_player) == 0)
+			{
+				objBattleManager.state = BATTLE_END;
+				objBattleManager.end_text = "DEFEAT!";
+			}
 		}
 		
 		if (attack_type == "HEAL")

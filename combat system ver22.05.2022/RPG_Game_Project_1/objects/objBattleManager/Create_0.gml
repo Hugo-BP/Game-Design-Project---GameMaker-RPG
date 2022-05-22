@@ -7,6 +7,7 @@ ds_npcs = -1;
 ds_selectable_npc = -1;		// used to iterate between availabe npcs to attack
 ds_selectable_player = -1;  // used to iterate between availabe players to attack with
 ds_spellbook = -1;
+end_text = "nothing";
 
 // BATTLE MENU TEXT
 cbt_menu_arr[0] = "ATK"
@@ -14,13 +15,6 @@ cbt_menu_arr[1] = "DEF"
 cbt_menu_arr[2] = "SPL"
 cbt_menu_arr[3] = "INV"
 cbt_menu_arr[4] = "RUN"
-
-// SPELLBOOK MENU TEXT
-spell_menu_arr[HAS_SPELL_HEAL] = "HEAL";
-spell_menu_arr[HAS_SPELL_FIREBALL] = "FIREBALL";
-spell_menu_arr[HAS_SPELL_STUN] = "STUN";
-spell_menu_arr[HAS_SPELL_CORRUPT] = "CORRUPT";
-
 
 // Battle Room - middle spot is always filled first
 
