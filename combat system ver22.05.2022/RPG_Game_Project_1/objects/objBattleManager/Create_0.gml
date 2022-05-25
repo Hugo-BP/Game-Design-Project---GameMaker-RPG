@@ -1,5 +1,6 @@
 
-state = INIT;
+state = INIT; // STAND_BY; // INIT
+result = "";
 
 // INIT LISTS
 ds_players = -1;

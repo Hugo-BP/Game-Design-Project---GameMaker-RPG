@@ -1,22 +1,21 @@
 // SETTINGS
 #macro FRAME_RATE 60
 #macro TILESIZE 16
+#macro MOVEMENT_SPEED 1
 
 // READABILITY
 #macro X_COORD 0
 #macro Y_COORD 1
 
 // STATES USED BY OBJECTS ( NPC / PLAYER / BATTLE MANAGER / ETC )
+#macro STAND_BY -1
 #macro INIT 0   // initialize object
 #macro READY 1  // object ready 
 #macro BATTLE_END 2 // run away / every1 died
-#macro ROAMING 3 // is in main world
 
 
 // MENU possible menus
 #macro DECISION_MENU 0
-#macro SPELL_MENU 1
-#macro ITEM_MENU 2 // open inventory
 
 // MENU decision menu
 #macro DECIDING 0
@@ -24,16 +23,13 @@
 #macro DEFEND 2
 #macro SPELL 3
 #macro INV 4
-#macro RUN 5
 #macro SELECT_ITEM_TARGET 6
 
 // MENU spell menu
 #macro CHOOSING_SPELL 0
 #macro USING_SPELL 1
 
-// MENU item menu
 #macro INVENTORY_SIZE 5
-#macro SELECT_ITEM 1
 
 // Pointer placement TODO prolly better to make the menu in a static size and spot
 #macro BUFFER 3

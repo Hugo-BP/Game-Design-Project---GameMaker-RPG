@@ -1,7 +1,7 @@
 image_speed = 0;
 state = INIT;
 entity_type = "NPC";
-
+index = 0;
 
 // statuses
 // BATTLE STATUSES
@@ -30,4 +30,5 @@ npc_damage = 0;
 curr_frame = 0; 
 anim_idle = sprDefault; 
 anim_attack = sprDefault; 
+anim_dead = sprDefault;
 

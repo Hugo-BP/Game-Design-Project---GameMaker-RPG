@@ -3,7 +3,6 @@ switch(state)
 {
 	#region INIT/RESET CODE
 	case INIT:
-	
 		// Create target list
 		if (ds_exists(ds_selectable_npc, ds_type_list))
 		{
@@ -37,6 +36,9 @@ switch(state)
 		{
 			player = instance_create_depth(player_spawn_pos[i, X_COORD], player_spawn_pos[i, Y_COORD], -100, objPlayer)
 			
+			player.x = player_spawn_pos[i, X_COORD];
+			player.y = player_spawn_pos[i, Y_COORD];
+			
 			player.index = i;
 			player.class = global_arr_players[player.index, CLASS]; 
 			
@@ -48,12 +50,14 @@ switch(state)
 			player.corruption = 0;
 			player.is_stunned = 0; // TODO CHANGE ANIMATION SPRITE IN OBJECT PLAYER/NPC DRAW EVENT
 			player.is_dead = false;
+			player.is_exploring = false;
 
 			player.state = INIT;
 			
 			// ANIMATION
 			player.anim_idle = global_arr_players[player.index, ANIM_IDLE]; 
 			player.anim_attack = global_arr_players[player.index, ANIM_ATTACK]; 
+			player.anim_dead = global_arr_players[player.index, ANIM_ATTACK]; 
 
 			// for menu selecting a player to attack
 			ds_list_add(ds_selectable_player, player);
@@ -88,6 +92,7 @@ switch(state)
 			// ANIMATION
 			npc.anim_idle = global_arr_enemies[npc.index, ANIM_IDLE]; 
 			npc.anim_attack = global_arr_enemies[npc.index, ANIM_ATTACK]; 
+			npc.anim_dead = global_arr_enemies[player.index, ANIM_ATTACK]; 
 			
 			// for menu selecting a npc to be attacked
 			ds_list_add(ds_selectable_npc, npc);
@@ -533,6 +538,7 @@ switch(state)
 							{
 								// GTFO
 								state = BATTLE_END;
+								result = "RUN";
 								end_text = "You manage to run away...";
 							}
 							else
@@ -985,7 +991,22 @@ if (state == BATTLE_END)
 			instance_destroy();
 		}
 		instance_destroy();
-	
+		
+		if (result == "WIN" or result == "RUN")
+		{
+			if (result == "WIN")
+			{
+				// delete the  spawner
+			}
+			
+			room_goto(global.player_prev_room);
+
+			//room_goto(objDataManager.player_previous_room);
+		}
+		else
+		{
+			// gameover screen, load from last room, exit to start menu
+		}
 	}
 }
 	

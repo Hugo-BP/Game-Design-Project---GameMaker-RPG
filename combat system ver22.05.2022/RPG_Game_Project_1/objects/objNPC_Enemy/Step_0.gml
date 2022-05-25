@@ -22,7 +22,7 @@ switch(state)
 		{
 			if (x == orig_x)
 			{
-				x += (sprite_width * 4);
+				x += (sprite_width);
 			}
 			sprite_index = anim_attack;
 			attack_animation_timer++;

@@ -48,6 +48,7 @@ function ScriptApplyDamage(final_damage, target, attack_type)
 			if ( ds_list_size(ds_selectable_npc) == 0)
 			{
 				objBattleManager.state = BATTLE_END;
+				objBattleManager.result = "WIN";
 				objBattleManager.end_text = "VICTORY!";
 			}
 			
@@ -110,6 +111,7 @@ function ScriptApplyDamage(final_damage, target, attack_type)
 			if ( ds_list_size(ds_selectable_player) == 0)
 			{
 				objBattleManager.state = BATTLE_END;
+				objBattleManager.result = "LOSE";
 				objBattleManager.end_text = "DEFEAT!";
 			}
 		}
