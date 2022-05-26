@@ -266,7 +266,7 @@ switch(state)
 							// If not attacking yet
 							if(menu_option_state != ATTACK)
 							{
-								// get target
+								// get default target for meele
 								with(objNPC_Enemy)
 								{
 									if (index >= 0) // if theres atleast 1 entity
@@ -373,6 +373,7 @@ switch(state)
 								// reset MENUS for next player
 								menu_option_state = DECIDING;
 								magic_menu_state = CHOOSING_SPELL;
+								selected_target = noone;
 							}
 						}
 						
@@ -413,6 +414,17 @@ switch(state)
 									ds_list_destroy(ds_spellbook);
 									ds_spellbook = -1;
 								}
+								
+								// get default target for spell
+								with(objNPC_Enemy)
+								{
+									if (index >= 0) // if theres atleast 1 entity
+									{
+										other.selected_target = id;
+										break;
+									}
+								}
+								
 								// Create curr player spellbook
 								ds_spellbook = ds_list_create();
 
@@ -420,6 +432,16 @@ switch(state)
 								if (global_arr_players[selected_player, HAS_SPELL_HEAL ])
 								{
 									ds_list_add(ds_spellbook, HAS_SPELL_HEAL);
+									
+									// get default target for spell HEAL
+									with(objPlayer)
+									{
+										if (index >= 0) // if theres atleast 1 entity
+										{
+											other.selected_target = id;
+											break;
+										}
+									}
 								}
 								if (global_arr_players[selected_player, HAS_SPELL_FIREBALL])
 								{
@@ -450,8 +472,9 @@ switch(state)
 								// if theres spells in curr player spellbook, select one and attack someone
 								if (ds_list_size(ds_spellbook) > 0)
 								{
-									// this var lets ATTACK decide whether to attack with meele or spell
+									// this var lets ATTACK menu logic decide whether to attack with meele or spell
 									magic_menu_state = USING_SPELL;
+									
 									// CHANGE menu_option_state FROM SPELL TO ATTACK
 									menu_option_state = ATTACK; // ATTACK == TARGETTING in the following menu ;
 									menu_option_index = 0;
@@ -460,6 +483,7 @@ switch(state)
 								else 
 								{
 									menu_option_state = DECIDING;
+									selected_target = noone;
 								}
 							}
 						}
@@ -480,6 +504,7 @@ switch(state)
 									// if item slot not empty
 									if (global_arr_inv[selected_player, inv_selected_item] != "")
 									{
+										// get default target for item
 										with(objPlayer)
 										{
 											if (index == other.selected_player) 
@@ -519,11 +544,12 @@ switch(state)
 										selected_player++;
 								
 										// reset MENUS for next player
+										menu_state = DECISION_MENU;
 										menu_option_state = DECIDING;
 										menu_option_index = 0;
-										selected_target = 0;
+										selected_target = noone;
 										curr_target = 0;
-										magic_menu_state = CHOOSING_SPELL;
+
 									}
 								}
 							}
@@ -551,9 +577,6 @@ switch(state)
 								menu_state = DECISION_MENU;
 								menu_option_state = DECIDING;
 								menu_option_index = 0;
-								selected_target = 0;
-								curr_target = 0;
-								magic_menu_state = CHOOSING_SPELL;
 							}
 						}
 					}
@@ -564,13 +587,7 @@ switch(state)
 					if (menu_option_state == ATTACK or menu_option_state ==  SELECT_ITEM_TARGET)
 					{
 						// SELECT TARGET TO ATTACK
-						
-						// if healer using heal spell then select a player as default
-						if (magic_menu_state == USING_SPELL and ds_list_find_value(ds_spellbook, magic_selected_spell) == HAS_SPELL_HEAL)
-						{
-							selected_target = ds_selectable_player[| curr_target];
-						}
-						
+					
 						// IF SELECTING AN NPC
 						if (selected_target.entity_type == "NPC")
 						{
