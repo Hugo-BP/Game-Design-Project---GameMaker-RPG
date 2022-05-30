@@ -20,9 +20,11 @@ orig_x = x;
 class = global_arr_players[index, CLASS];
 
 // ROAM
+name = "";
 is_exploring = true;
 is_moving = false;
 is_busy = false;
+can_quit_action = true;
 
 // Movement
 x_movement = 0;
@@ -32,27 +34,17 @@ movement_disabled = false;
 x = global.player_x_before_battle;
 y = global.player_y_before_battle;
 
-if (not global.player_can_warp)
+if (global.player_just_warped)
 {
-	if ( x != global.player_warp_to_x or y != global.player_warp_to_y )
-	{
-		movement_disabled = true; 
-					
-		x = global.player_warp_to_x;
-		y = global.player_warp_to_y;
-			
-		x_movement = x;
-		y_movement = y;			
-	}
+	x = global.player_warp_to_x;
+	y = global.player_warp_to_y;
+	global.player_just_warped = false;
 }
 
 
 // Collision
 layer_id = layer_get_id("Tiles_Collision");
 tilemap_id = layer_tilemap_get_id(layer_id);
-
-// Stats
-
 
 // Animations
 curr_frame = 0; 

@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Scenery Biomes and Buildings",
+    "path": "folders/Sprites/Scenery Biomes and Buildings.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprWater",

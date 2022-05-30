@@ -1,0 +1,5 @@
+spawns = [];
+state = INIT;
+
+	
+

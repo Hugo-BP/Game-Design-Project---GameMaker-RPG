@@ -48,7 +48,7 @@ switch(state)
 			player.is_defending = false;
 			player.is_corrupted = false;
 			player.corruption = 0;
-			player.is_stunned = 0; // TODO CHANGE ANIMATION SPRITE IN OBJECT PLAYER/NPC DRAW EVENT
+			player.is_stunned = 0; // TODO ADD ANIMATIONS FOR STUNNED STATE / SPELLS / ETC
 			player.is_dead = false;
 			player.is_exploring = false;
 
@@ -66,15 +66,15 @@ switch(state)
 		}
 		
 		// SPAWN NPC PARTY
-		for (var i=0 ; i < array_length(global_arr_enemies) and i < MAX_NPC_GROUP_SIZE ; i++)
+		for (var i=0 ; i < array_length(global_spawner_units) and i < MAX_NPC_GROUP_SIZE ; i++)
 		{
 			npc = instance_create_depth(npc_spawn_pos[i, X_COORD], npc_spawn_pos[i, Y_COORD], -100, objNPC_Enemy)
 			
 			npc.index = i;
-			npc.class = global_arr_enemies[npc.index, CLASS];		// TODO how to handle npcs? how do i know which npcs to spawn into battle? cant use global for that..
-			npc.npc_curr_hp = global_arr_enemies[npc.index, CURR_HP];
-			npc.npc_max_hp = global_arr_enemies[npc.index, MAX_HP];
-			npc.npc_damage = global_arr_enemies[npc.index, MAX_WEAPON_DAMAGE];
+			npc.class = global_spawner_units[npc.index, CLASS];
+			npc.npc_curr_hp = global_spawner_units[npc.index, CURR_HP];
+			npc.npc_max_hp = global_spawner_units[npc.index, MAX_HP];
+			npc.npc_damage = global_spawner_units[npc.index, MAX_WEAPON_DAMAGE];
 			
 			// BATTLE STATUSES
 			npc.is_in_battle = true;
@@ -90,14 +90,14 @@ switch(state)
 			npc.state = INIT;
 			
 			// ANIMATION
-			npc.anim_idle = global_arr_enemies[npc.index, ANIM_IDLE]; 
-			npc.anim_attack = global_arr_enemies[npc.index, ANIM_ATTACK]; 
-			npc.anim_dead = global_arr_enemies[player.index, ANIM_ATTACK]; 
+			npc.anim_idle = global_spawner_units[npc.index, ANIM_IDLE]; 
+			npc.anim_attack = global_spawner_units[npc.index, ANIM_ATTACK]; 
+			npc.anim_dead = global_spawner_units[npc.index, ANIM_DEAD]; 
 			
 			// for menu selecting a npc to be attacked
 			ds_list_add(ds_selectable_npc, npc);
 			
-			npc_initiative += global_arr_enemies[npc.index, INITIATIVE];
+			npc_initiative += global_spawner_units[npc.index, INITIATIVE];
 		}
 		
 		// Clean up lists
@@ -231,7 +231,7 @@ switch(state)
 							menu_state = DECISION_MENU;
 						}
 						
-						if (keyboard_check_pressed(vk_up))
+						if (keyboard_check_pressed(UP_KEY))
 						{
 							if (menu_option_index-1 >= 0)
 							{
@@ -242,7 +242,7 @@ switch(state)
 								menu_option_index = array_length(cbt_menu_arr) -1;
 							}
 						}
-						if (keyboard_check_pressed(vk_down))
+						if (keyboard_check_pressed(DOWN_KEY))
 						{
 							if (menu_option_index+1 < array_length(cbt_menu_arr))
 							{
@@ -256,7 +256,7 @@ switch(state)
 					}
 					
 					#region PLAYER_SECONDARY_MENU
-					if (keyboard_check_pressed(vk_space))
+					if (keyboard_check_pressed(CONTINUE_KEY))
 					{
 						// cbt_menu_arr possible : 0-atk 1-def 2-spell 3-inv 4-run
 						
@@ -342,7 +342,6 @@ switch(state)
 								ScriptApplyDamage(hero_final_damage, selected_target, attack_type);
 								
 								// AREA OF EFFECT SPELL
-								// TODO THIS NEEDS TESTING FOR ERRORS
 								if(curr_spell == HAS_SPELL_FIREBALL and selected_target.entity_type == "NPC")
 								{
 									for (var i=0 ; i<MAX_NPC_GROUP_SIZE ; i++)
@@ -535,7 +534,7 @@ switch(state)
 										}
 										
 										// give player obj command
-										//curr_player.is_attacking = true; // TODO change to animation use item
+										// TODO change to animation use item maybe?
 								
 										// REMOVE ITEM FROM IVENTORY
 										global_arr_inv[selected_player, inv_selected_item] = "";
@@ -596,14 +595,14 @@ switch(state)
 							// BUG FIX												  //  this does not feel like an optimal fix. TO_DO
 							
 							// left right keys switch between selecting a hero and an npc target
-							if (keyboard_check_pressed(vk_left) or keyboard_check_pressed(vk_right))
+							if (keyboard_check_pressed(LEFT_KEY) or keyboard_check_pressed(RIGHT_KEY))
 							{
 								curr_target = 0;
 								selected_target = ds_selectable_player[| curr_target]; // | is an accessor gets first entry of a list
 							}
 							
 							// ITERATE TRHOUGH POSSIBLE NPC TARGETS
-							if (keyboard_check_pressed(vk_down))
+							if (keyboard_check_pressed(DOWN_KEY))
 							{
 								if (curr_target+1 < ds_list_size(ds_selectable_npc))
 								{
@@ -615,7 +614,7 @@ switch(state)
 								}
 								selected_target = ds_selectable_npc[| curr_target];
 							}
-							if (keyboard_check_pressed(vk_up))
+							if (keyboard_check_pressed(UP_KEY))
 							{
 								if (curr_target-1 >= 0)
 								{
@@ -633,14 +632,14 @@ switch(state)
 							if (selected_target.entity_type == "PLAYER")
 							{	
 								// left right keys switch between selecting a hero and an npc target
-								if (keyboard_check_pressed(vk_left) or keyboard_check_pressed(vk_right))
+								if (keyboard_check_pressed(LEFT_KEY) or keyboard_check_pressed(RIGHT_KEY))
 								{
 									curr_target = 0;
 									selected_target = ds_selectable_npc[| curr_target]; // | is an accesser gets first entry of a list
 								}
 								
 								// ITERATE TRHOUGH POSSIBLE PLAYER TARGETS
-								if (keyboard_check_pressed(vk_down))
+								if (keyboard_check_pressed(DOWN_KEY))
 								{
 									if (curr_target+1 < ds_list_size(ds_selectable_player))
 									{
@@ -652,7 +651,7 @@ switch(state)
 									}
 									selected_target = ds_selectable_player[| curr_target];
 								}
-								if (keyboard_check_pressed(vk_up))
+								if (keyboard_check_pressed(UP_KEY))
 								{
 									if (curr_target-1 >= 0)
 									{
@@ -675,7 +674,7 @@ switch(state)
 						magic_known_spells = ds_list_size(ds_spellbook) -1;
 						
 						// ITERATE TRHOUGH SPELLBOOK
-						if (keyboard_check_pressed(vk_down))
+						if (keyboard_check_pressed(DOWN_KEY))
 						{
 							if (magic_selected_spell == magic_known_spells)
 							{
@@ -686,7 +685,7 @@ switch(state)
 								magic_selected_spell++;
 							}
 						}
-						if (keyboard_check_pressed(vk_up))
+						if (keyboard_check_pressed(UP_KEY))
 						{
 							if (magic_selected_spell == 0)
 							{
@@ -703,7 +702,7 @@ switch(state)
 					if (menu_option_state == INV)
 					{
 						// ITERATE TRHOUGH INVENOTRY
-						if (keyboard_check_pressed(vk_down))
+						if (keyboard_check_pressed(DOWN_KEY))
 						{
 							if (inv_selected_item == INVENTORY_SIZE-1)
 							{
@@ -714,7 +713,7 @@ switch(state)
 								inv_selected_item++;
 							}
 						}
-						if (keyboard_check_pressed(vk_up))
+						if (keyboard_check_pressed(UP_KEY))
 						{
 							if (inv_selected_item == 0)
 							{
@@ -730,7 +729,7 @@ switch(state)
 			}
 			
 			// GO BACK TO MAIN MENU - QUIT CURRENT MENU SELECTION
-			if (keyboard_check_pressed(vk_escape))
+			if (keyboard_check_pressed(QUIT_KEY))
 			{
 				menu_option_state = DECIDING;
 				//RESET MAGIC MENU
@@ -996,33 +995,50 @@ if (state == BATTLE_END)
 	// avoid case of player spam clicking space
 	end_timer++
 	// if press continue
-	if (keyboard_check_pressed(vk_space) and end_timer > room_speed*5)
+	if (keyboard_check_pressed(CONTINUE_KEY) and end_timer > room_speed*5)
 	{
-		// Clean old objects
-		with (objPlayer)
-		{
-			instance_destroy();
-		}
-		with (objNPC_Enemy)
-		{
-			instance_destroy();
-		}
-		instance_destroy();
-		
 		if (result == "WIN" or result == "RUN")
 		{
+			// make all spawners in room visible
+			with(objBattleSpawner)
+			{
+				if (room = global.player_prev_room)
+				{
+					visible = true;
+				}
+			}
 			if (result == "WIN")
 			{
-				// delete the  spawner
+				// disable the active spawner
+				global.curr_active_battle_spawn.state = REMOVE;
+				
+				// player rewards
+				ScriptRewardBattle();
 			}
-			
+			if (result == "RUN")
+			{
+				global.player_x_before_battle = global.player_warp_to_x;
+				global.player_y_before_battle = global.player_warp_to_y;
+			}
+			// Clean old objects
+			with (objPlayer)
+			{
+				instance_destroy();
+			}
+			with (objNPC_Enemy)
+			{
+				instance_destroy();
+			}
+			instance_destroy();
+		
+			// go back to previous room
+			global.warp_destination = global.player_prev_room;
 			room_goto(global.player_prev_room);
-
-			//room_goto(objDataManager.player_previous_room);
 		}
-		else
+		else // dead
 		{
 			// gameover screen, load from last room, exit to start menu
+			// TODO
 		}
 	}
 }
