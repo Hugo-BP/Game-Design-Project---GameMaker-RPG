@@ -44,18 +44,63 @@ if (state == INIT)
 	spawn_loc[2, Y_COORD] = 120;
 
 	// Create Villagers
-	for (var i=0 ; i < 3 ; i++)
-	{
-		// Create NPC
-		spawns[i] = instance_create_layer(spawn_loc[i, X_COORD], spawn_loc[i, Y_COORD], "Instance_Other", objNPC_Friendly);
-		spawns[i].index = i;
-		spawns[i].class = global_arr_friendlies[friendlies.villager, CLASS];
-		spawns[i].npc_name = global_arr_friendlies[friendlies.villager, NAME];
-		spawns[i].npc_text = global_arr_friendlies[friendlies.villager, TEXT];
-		spawns[i].can_trade = true;
-		spawns[i].trade_items = ["maple herb",20]; // TODO modular array, item id
-		spawns[i].can_give_quest = false;
-	}
+	//for (var i=0 ; i < 2 ; i++)
+	//{
+	i = 0;
+	// Create NPC
+	spawns[i] = instance_create_layer(spawn_loc[i, X_COORD], spawn_loc[i, Y_COORD], "Instance_Other", objNPC_Friendly);
+	spawns[i].index = i;
+	spawns[i].class = global_arr_friendlies[friendlies.villager, CLASS];
+	spawns[i].npc_name = global_arr_friendlies[friendlies.villager, NAME];
+	spawns[i].npc_text = global_arr_friendlies[friendlies.villager, TEXT];
+	spawns[i].anim_idle = global_arr_friendlies[friendlies.villager, ANIM_IDLE];
+	spawns[i].can_trade = true;
+	spawns[i].is_shop = false;
+	spawns[i].trade_items = ["apple", 2]; // TODO modular array, item id
+	spawns[i].can_give_quest = false;
+	
+	i = 1;
+	// Create NPC
+	spawns[i] = instance_create_layer(spawn_loc[i, X_COORD], spawn_loc[i, Y_COORD], "Instance_Other", objNPC_Friendly);
+	spawns[i].index = i;
+	spawns[i].class = global_arr_friendlies[friendlies.villager, CLASS];
+	spawns[i].npc_name = global_arr_friendlies[friendlies.villager, NAME];
+	spawns[i].npc_text = global_arr_friendlies[friendlies.villager, TEXT];
+	spawns[i].anim_idle = global_arr_friendlies[friendlies.villager, ANIM_IDLE];
+	spawns[i].can_trade = true;
+	spawns[i].is_shop = false;
+	spawns[i].trade_items = ["maple herb", 20]; // TODO modular array, item id
+	spawns[i].can_give_quest = false;
+
+	i = 2;
+	// Create NPC
+	spawns[i] = instance_create_layer(spawn_loc[i, X_COORD], spawn_loc[i, Y_COORD], "Instance_Other", objNPC_Friendly);
+	spawns[i].index = i;
+	spawns[i].class = global_arr_friendlies[friendlies.villager, CLASS];
+	spawns[i].npc_name = global_arr_friendlies[friendlies.villager, NAME];
+	spawns[i].npc_text = global_arr_friendlies[friendlies.villager, TEXT];
+	spawns[i].anim_idle = global_arr_friendlies[friendlies.villager, ANIM_IDLE];
+	spawns[i].can_trade = false;
+	spawns[i].is_shop = false;
+	spawns[i].trade_items = global_arr_friendlies[friendlies.villager, STORE]; 
+	spawns[i].can_give_quest = false;
+
+	
+	i = 3;
+	spawn_loc[i, X_COORD] = 80;
+	spawn_loc[i, Y_COORD] = 140;
+	// Create NPC
+	spawns[i] = instance_create_layer(spawn_loc[i, X_COORD], spawn_loc[i, Y_COORD], "Instance_Other", objNPC_Friendly);
+	spawns[i].index = i;
+	spawns[i].class = global_arr_friendlies[friendlies.inn_keeper, CLASS];
+	spawns[i].npc_name = global_arr_friendlies[friendlies.inn_keeper, NAME];
+	spawns[i].npc_text = global_arr_friendlies[friendlies.inn_keeper, TEXT];
+	spawns[i].anim_idle = global_arr_friendlies[friendlies.inn_keeper, ANIM_IDLE];
+	spawns[i].can_trade = true;
+	spawns[i].is_shop = true;
+	spawns[i].trade_items = global_arr_friendlies[friendlies.inn_keeper, STORE];
+	spawns[i].can_give_quest = false;
+	
 	state = READY;
 }
 
