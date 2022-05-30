@@ -7,11 +7,12 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(FontGenericMenu);
 
+// MAX 5 options
 if (output_type = M_OPTIONS)
 {
 	// draw all the options and the arrow pointing to the selected option
 	var desc_exists = !(desc == -1);
-	for (var i = first_line ; i < final_line + desc_exists ; i++)
+	for (var i = first_line ; i < nr_lines + desc_exists ; i++)
 	{
 		// draw title
 		if (i == first_line and desc_exists)
@@ -35,6 +36,7 @@ if (output_type = M_OPTIONS)
 	}
 }
 
+// MAX 4 lines of text
 if (output_type = M_TEXT)
 {
 	// draw wall of text
