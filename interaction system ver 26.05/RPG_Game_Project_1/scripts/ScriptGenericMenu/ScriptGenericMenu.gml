@@ -1,7 +1,13 @@
 
 
+// input_type - whether its a wall of text or options to choose from ( M_TEXT OR M_OPTIONS )
+// menu_options - this is text, if its wall of text it needs to go through the textparser script first, options are in the [[op1, do1],[op2, do2]] format. if option does nothing then do = -1
+// menu_description - standard string
+// is_final_interaction - whether the player should be able to move after said menu is closed. only the final menu should be true, options BOOL are always true if do !=-1
+// menu_index - order in which the menus are closed ( player sees the menus}
+
 // MENU OPTIONS 4 MAX
-function ScriptGenericMenu(input_type, menu_options, menu_description = -1, _final_interaction, menu_index)
+function ScriptGenericMenu(input_type, menu_options, menu_description = -1, is_final_interaction, menu_index)
 {
 	// get menu draw coordinates
 	menu_x = view_wport[0] * 0.05;
@@ -18,7 +24,7 @@ function ScriptGenericMenu(input_type, menu_options, menu_description = -1, _fin
 		text_pointer = "> ";
 		
 		output_type = input_type;
-		final_interaction = _final_interaction;
+		final_interaction = is_final_interaction;
 		
 		margin = INTERACTION_MENU_MARGIN;
 		
