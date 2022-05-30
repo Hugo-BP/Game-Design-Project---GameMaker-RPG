@@ -10,12 +10,12 @@ if (spawner_room == global.warp_destination)
 
 units = noone;
 battleroom = noone;
+manager = noone;
 
 // ANIMATIONS
 curr_frame = 0; 
 anim_idle = noone;
-index = 0;
 
-image_index = index;
+image_index = 0;
 sprite_index = anim_idle;
 

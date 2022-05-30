@@ -8,9 +8,7 @@ if (state == INIT)
 	var attempts = 0;
 	var locs = 0;
 	
-
-	
-	while (locs < MAX_SPAWNS_PER_ROOM and attempts < 100)
+	while (locs < 1 and attempts < 100)
 	{
 		var sp_x = irandom(hcells);
 		var sp_y = irandom(vcells);
@@ -33,45 +31,46 @@ if (state == INIT)
 		attempts++;
 	}
 
-	// Create Spawner
-	for (var i=0 ; i < MAX_SPAWNS_PER_ROOM ; i++)
-	{
-		// Create Spawner obj
-		spawns[i] = instance_create_layer(spawn_loc[i, X_COORD], spawn_loc[i, Y_COORD], "Instance_Other", objBattleSpawner);
-		spawns[i].index = i;
-		
-		// Choose Battleroom
-		spawns[i].battleroom = BattleRoom_0;
-
-		party_size = round(random_range(1, MAX_NPC_GROUP_SIZE));
-		// Choose Units max 5
-		for (var n=0 ; n < party_size ; n++)
-		{	
-			// choose random classes of units
-			enemy = choose(enemies.skeleton_knight, enemies.skeleton_archer, enemies.demon, enemies.evil_eye);
-			spawns[i].units[n] = global_arr_enemies[enemy];
-		}
-		// Spawner Avatar is a random unit from the chosen ones
-		sp = random_range(0, array_length(spawns[i].units));
-		spawns[i].anim_idle = spawns[i].units[sp, ANIM_IDLE]; 
+	// Create Spawner obj
+	spawn = instance_create_layer(spawn_loc[0, X_COORD], spawn_loc[0, Y_COORD], "Instance_Other", objBattleSpawner);
+	spawn.battleroom = manager_battle_room;
+	spawn.manager = id;
+	
+	// Choose Units max 5
+	party_size = round(random_range(1, MAX_NPC_GROUP_SIZE));
+	for (var n=0 ; n < party_size ; n++)
+	{	
+		// choose random classes of units
+		enemy = choose(enemies.skeleton_knight, enemies.skeleton_archer, enemies.demon, enemies.evil_eye);
+		spawn.units[n] = global_arr_enemies[enemy];
 	}
+	// Spawner Avatar is a random unit from the chosen ones
+	sp = random_range(0, array_length(spawn.units));
+	spawn.anim_idle = spawn.units[sp, ANIM_IDLE]; 
+
 
 	state = READY;
 }
 
 if (state == READY)
 {
-	if (array_length(spawns) <= 0 )
+	//if ((global.warp_destination != manager_room) and (global.warp_destination != manager_battle_room) and spawn != noone)
+	//{
+	//	// if the player leaves room then all npcs are deleted (ex. starts combat).
+	//	// by deleting the manager, if player returns to room then npcs are spawned again
+	//	instance_destroy(spawn);
+	//	instance_destroy();
+	//}
+	
+	// if spawn was killed off then start respawn timer
+	if (spawn == noone)
 	{
 		if (cs > cooldown)
 		{
 			state = INIT;
-			// in this case its important to respawn monsters even if the player doesnt leave room.
-			//instance_destroy();
 		}
 		cs++;
 	}
-
 }
 
 

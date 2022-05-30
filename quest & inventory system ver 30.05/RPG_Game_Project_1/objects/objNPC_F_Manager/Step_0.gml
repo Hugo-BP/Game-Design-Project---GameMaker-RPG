@@ -106,7 +106,7 @@ if (state == INIT)
 
 if (state == READY)
 {
-	if (instance_number(objPlayer) == 0)
+	if ((global.warp_destination != manager_room))
 	{
 		// if the player leaves room then all npcs are deleted (ex. starts combat).
 		// by deleting the manager, if player returns to room then npcs are spawned again

@@ -347,7 +347,7 @@ switch(state)
 									for (var i=0 ; i<MAX_NPC_GROUP_SIZE ; i++)
 									{
 										var aoe = ds_list_find_value(ds_npcs, i); // ds_npcs holds all alive npcs
-										if (aoe != undefined and aoe != selected_target)
+										if (aoe != undefined and aoe != selected_target and not aoe.is_dead)
 										{
 											ScriptApplyDamage(round(hero_final_damage/3),ds_list_find_value(ds_npcs, i), attack_type);
 										}
@@ -359,7 +359,7 @@ switch(state)
 									for (var i=0 ; i<MAX_HERO_GROUP_SIZE ; i++)
 									{
 										var aoe = ds_list_find_value(ds_selectable_player, i); 
-										if (aoe != undefined and aoe != selected_target)
+										if (aoe != undefined and aoe != selected_target and not aoe.is_dead)
 										{
 											ScriptApplyDamage(round(hero_final_damage/3),ds_list_find_value(ds_selectable_player, i), attack_type);
 										}

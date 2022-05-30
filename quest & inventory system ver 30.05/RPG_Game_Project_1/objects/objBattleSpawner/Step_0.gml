@@ -2,14 +2,15 @@
 
 if (state == REMOVE)
 {
-	
 	visible = false;
 	
 	with(objNPC_E_Manager)
 	{
-		array_delete(spawns, other.index, 1);
+		if (id == other.manager)
+		{
+			spawn = noone;
+		}
 	}
-	
 	instance_destroy();
 }
 
