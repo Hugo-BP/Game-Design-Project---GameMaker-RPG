@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Battle & Enemies",
+    "path": "folders/Objects/Battle & Enemies.yy",
   },
   "resourceVersion": "1.0",
   "name": "objDamageVisuals",

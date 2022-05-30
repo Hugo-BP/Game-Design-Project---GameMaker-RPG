@@ -3,17 +3,38 @@
 #macro TILESIZE 16
 #macro MOVEMENT_SPEED 1
 
+
 // READABILITY
 #macro X_COORD 0
 #macro Y_COORD 1
 
 // STATES USED BY OBJECTS ( NPC / PLAYER / BATTLE MANAGER / ETC )
-#macro STAND_BY -1
 #macro INIT 0   // initialize object
 #macro READY 1  // object ready 
 #macro BATTLE_END 2 // run away / every1 died
+#macro STAND_BY 3
+#macro REMOVE 4
 
+// Interaction - Types of GUI menu to draw
+#macro M_OPTIONS 0
+#macro M_TEXT 1
+#macro MAX_TEXT_LEN 50
+#macro MAX_NR_OPTIONS 5
+#macro INTERACTION_MENU_MARGIN 8
 
+// CONTROLS
+// actions
+#macro INTERACTION_KEY ord("O")
+#macro INVENTORY_KEY ord("I")
+#macro CONTINUE_KEY vk_space
+#macro QUIT_KEY vk_escape
+// movement
+#macro LEFT_KEY vk_left
+#macro RIGHT_KEY vk_right
+#macro UP_KEY vk_up
+#macro DOWN_KEY vk_down
+
+// COMBAT MENUS
 // MENU possible menus
 #macro DECISION_MENU 0
 
@@ -34,9 +55,10 @@
 // Pointer placement TODO prolly better to make the menu in a static size and spot
 #macro BUFFER 3
 
-// COMBAT
+// COMBAT SIZES
 #macro MAX_NPC_GROUP_SIZE 5
 #macro MAX_HERO_GROUP_SIZE 4
+#macro MAX_SPAWNS_PER_ROOM 5
 
 #macro ATTACK_COOLDOWN 60
 
@@ -61,4 +83,19 @@
 #macro ANIM_DEAD 17
 #macro ANIM_SPELL_HEAL 18
 #macro ANIM_SPELL_FIREBALL 19
+#macro ANIM_SPELL_STUN 20
+#macro ANIM_SPELL_CORRUPT 21
+#macro TEXT 22
+#macro NPC_ID 23
+
+
+
+
+
+
+
+
+
+
+
 

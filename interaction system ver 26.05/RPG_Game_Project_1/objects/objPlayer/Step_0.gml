@@ -66,7 +66,7 @@ switch(state)
 			// Switch gets movement direction and movement value
 			switch(keyboard_key)
 			{
-				case vk_left: case ord("A"):
+				case LEFT_KEY:
 				input_direction = point_direction(0, 0, -1, 0);
 				is_moving = true;
 				
@@ -75,7 +75,7 @@ switch(state)
 	
 				break;
  
-				case vk_right: case ord("D"):
+				case RIGHT_KEY:
 				input_direction = point_direction(0, 0, 1, 0);
 				is_moving = true;
 	
@@ -84,7 +84,7 @@ switch(state)
 	
 				break;
  
-				case vk_up: case ord("W"):
+				case UP_KEY:
 				input_direction = point_direction(0, 0, 0, -1);
 				is_moving = true;
 	
@@ -93,7 +93,7 @@ switch(state)
 	
 				break;
  
-				case vk_down: case ord("S"):
+				case DOWN_KEY:
 				input_direction = point_direction(0, 0, 0, 1);
 				is_moving = true;
 	
@@ -102,11 +102,12 @@ switch(state)
 
 				break;
 				
-				case ord("I"):
+				case INVENTORY_KEY:
 					// open inventory/stats/equipment
 					if (not is_busy)
 					{
 						is_busy = true;
+						movement_disabled = true;
 						is_moving = false;
 						
 						// CHECK
@@ -117,25 +118,23 @@ switch(state)
 					else
 					{
 						is_busy = false;
+						movement_disabled = false;
 					}
 				break;
 				
-				case ord("O"):
-					// TODO open text window asking yes no etc
-					is_busy = true;
-					is_moving = false;
-						
-					// CHECK FOR COLLISION WITH INTERACTIBLE ENTITIES
-					// Warp
-					ScriptWarpCollision();
-					// NPC
-						
+				case INTERACTION_KEY:
+					// check to see if theres something to interact with
+					if (not is_busy)	
+					{
+					// NPC Interactions
+						ScriptNPCInteract();	
 					// Resources
-						
+						ScriptResourceInteract();
 					// Workbench (crafting)
-						
-					// player finished interaction
-					is_busy = false;
+						ScriptWorkbenchInteract();
+					// Pick up item 
+						ScriptItemInteract();
+					}
 				break;
 				
 			}
@@ -143,25 +142,28 @@ switch(state)
 			// Check for collisions and commit to movement value 
 			if (not movement_disabled)
 			{
-				PlayerCollision();
+				ScriptPlayerCollision();
 			}
-			
 			// Update camera view
-			ScriptCameraMovement();
-			
-		}
+			ScriptCameraMovement();	
+		} // is_exploring and not is_busy
+		
 		
 		if (is_exploring and is_busy)
 		{
+			// Player is interacting, movement is disabled
 			switch(keyboard_key)
 			{
-				case vk_escape:
-					// QUIT action
-					is_busy = false;
-					
+				case QUIT_KEY:
+					if (can_quit_action)
+					{
+						// QUIT action
+						is_busy = false;
+						movement_disabled = false;
+					}
 				break;
 			}
-		}
+		}  // is_exploring and is_busy
 		
 	break;
 }

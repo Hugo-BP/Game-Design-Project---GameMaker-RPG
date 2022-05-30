@@ -1,4 +1,4 @@
-if (state != STAND_BY) //(state != STAND_BY) (state == READY) 
+if (state != STAND_BY) 
 {
 	// MENU DRAW
 	draw_set_halign(fa_left);
@@ -41,7 +41,7 @@ if (state != STAND_BY) //(state != STAND_BY) (state == READY)
 		if (menu_option_state == ATTACK or menu_option_state == SELECT_ITEM_TARGET)
 		{
 			t_x = selected_target.x;
-			t_y = selected_target.y - selected_target.sprite_height - sprite_get_height(sprPointer)/2;
+			t_y = selected_target.y - selected_target.sprite_height + sprite_get_height(sprPointer)/3;
 			draw_sprite_ext(sprPointer, 0, t_x, t_y, 0.75, 1, 270, c_white, 1);
 		}
 	
