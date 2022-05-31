@@ -41,7 +41,8 @@ function ScriptCallQuest(target)
 			// FIND NPC QUEST
 			if (quest.quest_type == "find")
 			{
-				find = choose(friendlies.inn_keeper);
+				// find this type of NPC
+				find = friendlies.inn_keeper;
 				text_arr += "You go find an Inn Keeper./It's always good to know where there's a place you can stay for the night./";
 				quest.npc_to_find_name = global_arr_friendlies[find][NAME];
 			}

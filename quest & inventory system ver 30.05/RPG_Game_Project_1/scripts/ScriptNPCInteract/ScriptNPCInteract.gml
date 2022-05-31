@@ -22,7 +22,7 @@ function ScriptNPCInteract()
 	
 	if (is_interacting)
 	{
-		stat = "";
+		var stat = "";
 		if (global.active_quest != noone)
 		{
 			// check if npc is involved in quests

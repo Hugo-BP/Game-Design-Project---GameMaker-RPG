@@ -13,7 +13,7 @@ npc_to_kill_name = "";
 npc_to_find_name = ""; 
 npc_was_found = false;
 
-// Find location quest
+// Find location/building quest
 
 // Find item quest
 

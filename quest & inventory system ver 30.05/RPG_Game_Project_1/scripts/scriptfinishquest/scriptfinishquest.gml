@@ -21,7 +21,7 @@ function ScriptFinishQuest(target_npc)
 		// else gtfo
 		else
 		{
-			text_arr = "Go finish that quest I gave you./";
+			text_arr = "I'm busy right now./Why don't you go finish that quest I gave you?/";
 			text_arr = ScriptTextParser(text_arr);
 			ScriptGenericMenu(M_TEXT, text_arr, target_npc.npc_name, true, 0);
 			
@@ -34,6 +34,8 @@ function ScriptFinishQuest(target_npc)
 		if (global.active_quest.state == READY and target_npc.npc_name == global.active_quest.npc_to_find_name)
 		{
 			global.active_quest.npc_was_found = true;
+			
+			// TODO unique quest dialog
 			text_arr = "Hello there!/Were you looking for an Inn to stay at?/Welcome, welcome!/";
 			text_arr = ScriptTextParser(text_arr);
 			ScriptGenericMenu(M_TEXT, text_arr, target_npc.npc_name, true, 0);
