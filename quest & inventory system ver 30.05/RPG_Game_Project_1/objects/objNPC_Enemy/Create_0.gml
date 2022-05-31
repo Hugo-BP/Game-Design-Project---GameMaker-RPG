@@ -19,7 +19,8 @@ has_healed = 0;
 attack_animation_timer = 0;
 attack_animation_duration = 50;
 orig_x = x;
-class = "none";
+class = "";
+npc_name = "";
 
 // NPC HP is volatile
 npc_curr_hp = 0;

@@ -22,28 +22,39 @@ function ScriptNPCInteract()
 	
 	if (is_interacting)
 	{
-		if (not target_npc.is_shop)
+		stat = "";
+		if (global.active_quest != noone)
 		{
-			ScriptGenericMenu(M_OPTIONS, [
-			["Chat with " + target_npc.npc_name + ".", ScriptCallText, target_npc],
-			["Trade with " + target_npc.npc_name + ".", ScriptCallTrade, target_npc],
-			["Ask " + target_npc.npc_name + " for a Quest.", ScriptCallQuest, target_npc],
-			["Use item on " + target_npc.npc_name + ".", ScriptCallItem, target_npc],
-			["Leave.", -1]], 
-			"You look at the " + target_npc.npc_name + "...", true, 0); 
-			// scripts are only called after the option is selected so start these scripts as 0
+			// check if npc is involved in quests
+			stat = ScriptFinishQuest(target_npc);
 		}
-		if (target_npc.is_shop)
+		
+		// if npc is a quest npc then skip the interact menu on the first attempt at interaction
+		if (stat != "quest_npc") 
 		{
-			ScriptGenericMenu(M_OPTIONS, [
+			if (not target_npc.is_shop)
+			{
+				ScriptGenericMenu(M_OPTIONS, [
 				["Chat with " + target_npc.npc_name + ".", ScriptCallText, target_npc],
 				["Trade with " + target_npc.npc_name + ".", ScriptCallTrade, target_npc],
+				["Ask " + target_npc.npc_name + " for a Quest.", ScriptCallQuest, target_npc],
+				["Use item on " + target_npc.npc_name + ".", ScriptCallItem, target_npc],
 				["Leave.", -1]], 
 				"You look at the " + target_npc.npc_name + "...", true, 0); 
-		}
-		if (target_npc.can_recruit)
-		{
-			ScriptRecruitHero(target_npc);
+				// scripts are only called after the option is selected so start these scripts as 0
+			}
+			if (target_npc.is_shop)
+			{
+				ScriptGenericMenu(M_OPTIONS, [
+					["Chat with " + target_npc.npc_name + ".", ScriptCallText, target_npc],
+					["Trade with " + target_npc.npc_name + ".", ScriptCallTrade, target_npc],
+					["Leave.", -1]], 
+					"You look at the " + target_npc.npc_name + "...", true, 0); 
+			}
+			if (target_npc.can_recruit)
+			{
+				ScriptRecruitHero(target_npc);
+			}
 		}
 	}
 }

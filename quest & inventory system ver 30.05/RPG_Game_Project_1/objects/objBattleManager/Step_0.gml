@@ -43,6 +43,7 @@ switch(state)
 			
 			player.index = i;
 			player.class = global_arr_players[player.index, CLASS]; 
+			player.name = global_arr_players[player.index, NAME]; 
 			
 			// BATTLE STATUSES
 			player.is_in_battle = true;
@@ -74,6 +75,7 @@ switch(state)
 			
 			npc.index = i;
 			npc.class = global_spawner_units[npc.index, CLASS];
+			npc.npc_name = global_spawner_units[npc.index, NAME];
 			npc.npc_curr_hp = global_spawner_units[npc.index, CURR_HP];
 			npc.npc_max_hp = global_spawner_units[npc.index, MAX_HP];
 			npc.npc_damage = global_spawner_units[npc.index, MAX_WEAPON_DAMAGE];

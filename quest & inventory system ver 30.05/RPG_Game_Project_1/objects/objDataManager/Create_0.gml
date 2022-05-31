@@ -4,6 +4,7 @@ globalvar global_arr_inv, global_arr_spellbook;
 
 // PLAYER PURSE
 global.purse = 0;
+global.active_quest = noone;
 global.party_leader = 0; // changes active player sprite to his chosen party member
 
 // WARPING
@@ -25,22 +26,27 @@ global.player_menu_text[3] = "SETTINGS";
 global.player_menu_text[4] = "EXIT";
 global.player_menu_state = false;
 
-//enum ITEM {
-//  SMALL_MANA_POTION,
-//  MEDIUM_MANA_POTION,
-//  LARGE_MANA_POTION
-//}
+// ITEMS & INVENTORY
+global.inventory_slots = 25
+global.inventory = noone;
 
-//enum STAT {
-//  NAME,
-//  EFFECT,
-//  POWER
-//}
 
-//global.dictionary[ITEM.SMALL_MANA_POTION, STAT.NAME] = "Small Mana Potion";
-//global.dictionary[ITEM.SMALL_MANA_POTION, STAT.EFFECT] = scr_ManaHeal;
-//global.dictionary[ITEM.SMALL_MANA_POTION, STAT.POWER] = 25;
-//...
+enum item_slot
+{
+	item_id,
+	item_nr, // -1 for items that dont stack
+	_end
+}
+
+for (var slot=0 ; slot < global.inventory_slots ; slot++)
+{
+	for (var slot_info=0 ; slot_info < item_slot._end ; slot_info++)
+	{
+		global.inventory[slot, slot_info] = -1;
+	}
+}
+
+
 
 //SPELLBOOKS
 // SPELLBOOK MENU TEXT
@@ -51,29 +57,29 @@ global_arr_spellbook[HAS_SPELL_CORRUPT] = "CORRUPT";
 
 //INVENTORIES
 // global_arr_inv[player, inv_slot_x] = item
-global_arr_inv[0,0] = "Axe";
+global_arr_inv[0,0] = "";
 global_arr_inv[0,1] = "";
-global_arr_inv[0,2] = "Raw Beef";
-global_arr_inv[0,3] = "Raw Pike";
-global_arr_inv[0,4] = "Egg";
+global_arr_inv[0,2] = "HP potion";
+global_arr_inv[0,3] = "";
+global_arr_inv[0,4] = "";
 
-global_arr_inv[1,0] = "Talisman";
-global_arr_inv[1,1] = "Lucky Coin";
-global_arr_inv[1,2] = "Arrow Tip";
-global_arr_inv[1,3] = "Arrow shaft";
-global_arr_inv[1,4] = "Knife";
+global_arr_inv[1,0] = "";
+global_arr_inv[1,1] = "HP potion";
+global_arr_inv[1,2] = "HP potion";
+global_arr_inv[1,3] = "";
+global_arr_inv[1,4] = "";
 
 global_arr_inv[2,0] = "AP potion";
 global_arr_inv[2,1] = "";
-global_arr_inv[2,2] = "Old Tome";
+global_arr_inv[2,2] = "";
 global_arr_inv[2,3] = "Maple Herb";
 global_arr_inv[2,4] = "";
 
 global_arr_inv[3,0] = "AP potion";
 global_arr_inv[3,1] = "HP potion";
 global_arr_inv[3,2] = "HP potion";
-global_arr_inv[3,3] = "Menta Herb";
-global_arr_inv[3,4] = "Holy Elixir";
+global_arr_inv[3,3] = "";
+global_arr_inv[3,4] = "";
 
 
 #region PLAYER_ARR
@@ -126,7 +132,7 @@ global_arr_players[2, MAX_AP] = 200;
 global_arr_players[2, CURR_AP] = 200;
 global_arr_players[2, EXP] = 0;
 global_arr_players[2, INITIATIVE] = 75;
-global_arr_players[2, MAX_WEAPON_DAMAGE] = 5;
+global_arr_players[2, MAX_WEAPON_DAMAGE] = 500;
 global_arr_players[2, HAS_SPELL_HEAL] = false;
 global_arr_players[2, HAS_SPELL_FIREBALL] = true;
 global_arr_players[2, HAS_SPELL_STUN] = true;

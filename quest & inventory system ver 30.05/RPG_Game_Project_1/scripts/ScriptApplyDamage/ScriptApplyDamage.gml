@@ -50,9 +50,7 @@ function ScriptApplyDamage(final_damage, target, attack_type)
 				objBattleManager.state = BATTLE_END;
 				objBattleManager.result = "WIN";
 				objBattleManager.end_text = "VICTORY!";
-			}
-			
-			
+			}			
 		}
 		
 		if (attack_type == "HEAL")

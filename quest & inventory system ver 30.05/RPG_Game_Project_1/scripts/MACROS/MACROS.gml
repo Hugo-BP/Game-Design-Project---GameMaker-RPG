@@ -14,6 +14,7 @@
 #macro BATTLE_END 2 // run away / every1 died
 #macro STAND_BY 3
 #macro REMOVE 4
+#macro COMPLETED 5
 
 // Interaction - Types of GUI menu to draw
 #macro M_OPTIONS 0
