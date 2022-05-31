@@ -28,6 +28,7 @@
 #macro INVENTORY_KEY ord("I")
 #macro CONTINUE_KEY vk_space
 #macro QUIT_KEY vk_escape
+#macro PLAYER_MENU_KEY vk_enter
 // movement
 #macro LEFT_KEY vk_left
 #macro RIGHT_KEY vk_right

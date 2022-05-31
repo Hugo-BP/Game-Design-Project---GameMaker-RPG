@@ -1,4 +1,6 @@
-
+if (not global.player_menu_state)
+{
+	
 switch(state)
 {
 	#region INIT/RESET CODE
@@ -1043,7 +1045,7 @@ if (state == BATTLE_END)
 	}
 }
 	
-	
+}
 	
 	
 	

@@ -27,6 +27,7 @@ else
 
 if (state == READY)
 {
+	image_index = 0;
 	// ANIMATION 
 	var curr_sprite = sprite_index;
 		
@@ -36,6 +37,6 @@ if (state == READY)
 	{
 		localFrame = 0;
 	}
-	ScriptAnimateSprite();
 }
 
+ScriptAnimateSprite();

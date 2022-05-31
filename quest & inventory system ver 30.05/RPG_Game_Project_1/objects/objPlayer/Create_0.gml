@@ -1,7 +1,7 @@
 image_speed = 0;
 state = INIT;
 entity_type = "PLAYER";
-index = 0;
+index = global.party_leader;
 
 // statuses
 // BATTLE STATUSES
@@ -20,11 +20,11 @@ orig_x = x;
 class = global_arr_players[index, CLASS];
 
 // ROAM
-name = "";
+name = global_arr_players[index, NAME];
 is_exploring = true;
 is_moving = false;
 is_busy = false;
-can_quit_action = true;
+inventory_open = false;
 
 // Movement
 x_movement = 0;

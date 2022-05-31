@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Textboxes Menus Pointer",
-    "path": "folders/Sprites/Textboxes Menus Pointer.yy",
+    "name": "Utility",
+    "path": "folders/Sprites/Utility.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprPointer",

@@ -13,6 +13,10 @@ if (state == INIT)
 }
 
 // delete all menu objects
+if (not global.player_menu_state)
+{
+
+// delete all menu objects
 if (keyboard_check_released(QUIT_KEY))
 {
 	objPlayer.is_busy = false;
@@ -129,7 +133,7 @@ if (state == READY)
 	}
 }
 	
-
+}
 
 	
 	

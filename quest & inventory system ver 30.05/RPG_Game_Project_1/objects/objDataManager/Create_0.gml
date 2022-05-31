@@ -4,6 +4,7 @@ globalvar global_arr_inv, global_arr_spellbook;
 
 // PLAYER PURSE
 global.purse = 0;
+global.party_leader = 0; // changes active player sprite to his chosen party member
 
 // WARPING
 global.player_just_warped = false;
@@ -17,8 +18,12 @@ global.player_x_before_battle = TILESIZE*3;
 global.player_y_before_battle = TILESIZE*3;
 global.curr_active_battle_spawn = noone;
 
-
-
+global.player_menu_text[0] = "CONTINUE";
+global.player_menu_text[1] = "LOAD GAME";
+global.player_menu_text[2] = "NEW GAME";
+global.player_menu_text[3] = "SETTINGS";
+global.player_menu_text[4] = "EXIT";
+global.player_menu_state = false;
 
 //enum ITEM {
 //  SMALL_MANA_POTION,
