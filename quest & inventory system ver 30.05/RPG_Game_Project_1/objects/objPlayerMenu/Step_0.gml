@@ -21,7 +21,7 @@ if (global.player_menu_state)
 		selected_pm = nr_options_pm-1; 
 	}
 	// select option, if option is exit then close game.
-	if (keyboard_check_pressed(CONTINUE_KEY))
+	if (keyboard_check_released(CONTINUE_KEY))
 	{
 		if (global.player_menu_text[selected_pm] == "CONTINUE")
 		{
