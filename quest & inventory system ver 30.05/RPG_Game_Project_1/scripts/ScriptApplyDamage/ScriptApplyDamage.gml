@@ -111,6 +111,11 @@ function ScriptApplyDamage(final_damage, target, attack_type)
 				objBattleManager.state = BATTLE_END;
 				objBattleManager.result = "LOSE";
 				objBattleManager.end_text = "DEFEAT!";
+				global.gameover = true;
+				with (objPlayer)
+				{
+					anim_idle = sprDead;
+				}
 			}
 		}
 		

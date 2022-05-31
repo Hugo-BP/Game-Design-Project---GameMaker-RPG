@@ -30,7 +30,7 @@
     "path": "folders/Objects/Utility.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objPlayerMenu",
+  "name": "objGameOverMenu",
   "tags": [],
   "resourceType": "GMObject",
 }

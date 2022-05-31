@@ -999,7 +999,7 @@ if (state == BATTLE_END)
 	// avoid case of player spam clicking space
 	end_timer++
 	// if press continue
-	if (keyboard_check_pressed(CONTINUE_KEY) and end_timer > room_speed*5)
+	if (keyboard_check_pressed(CONTINUE_KEY) and end_timer > room_speed*3)
 	{
 		if (result == "WIN" or result == "RUN")
 		{
@@ -1039,10 +1039,9 @@ if (state == BATTLE_END)
 			global.warp_destination = global.player_prev_room;
 			room_goto(global.player_prev_room);
 		}
-		else // dead
+		else
 		{
-			// gameover screen, load from last room, exit to start menu
-			// TODO
+			global.gameover_menu_state = true;
 		}
 	}
 }

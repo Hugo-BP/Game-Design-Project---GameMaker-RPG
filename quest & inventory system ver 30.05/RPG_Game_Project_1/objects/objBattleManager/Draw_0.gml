@@ -138,19 +138,13 @@ if (state != STAND_BY)
 		draw_text(cbt_x + string_width("XXX_HP_1000/1000_"), cbt_y + (i * (font_size - BUFFER)), str_ap);
 	}
 
-
-
 	if (state == BATTLE_END)
 	{
-		//draw_set_halign(fa_center);
-		//draw_set_valign(fa_middle);
 		draw_set_color(c_white);
 
 		draw_text(room_width/3, room_height/3, end_text);
 		draw_text((room_width/3) + (font_size - BUFFER)*3, (room_height/3)+(font_size - BUFFER + 1), "Press Space to Continue...");
-
 	}
-
 }
 
 

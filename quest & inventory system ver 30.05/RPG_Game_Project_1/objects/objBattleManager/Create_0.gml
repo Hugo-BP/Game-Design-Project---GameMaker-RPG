@@ -1,6 +1,7 @@
 
 state = INIT; // STAND_BY; // INIT
 result = "";
+gameover = noone;
 
 // INIT LISTS
 ds_players = -1;

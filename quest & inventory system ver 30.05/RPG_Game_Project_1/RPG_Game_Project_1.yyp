@@ -35,6 +35,7 @@
     {"id":{"name":"sprSword","path":"sprites/sprSword/sprSword.yy",},"order":3,},
     {"id":{"name":"sprColision","path":"sprites/sprColision/sprColision.yy",},"order":0,},
     {"id":{"name":"ScriptResourceInteract","path":"scripts/ScriptResourceInteract/ScriptResourceInteract.yy",},"order":1,},
+    {"id":{"name":"objGameOverMenu","path":"objects/objGameOverMenu/objGameOverMenu.yy",},"order":3,},
     {"id":{"name":"ScriptNPCInteract","path":"scripts/ScriptNPCInteract/ScriptNPCInteract.yy",},"order":4,},
     {"id":{"name":"tileCol","path":"tilesets/tileCol/tileCol.yy",},"order":1,},
     {"id":{"name":"sprArcherIdle","path":"sprites/sprArcherIdle/sprArcherIdle.yy",},"order":0,},

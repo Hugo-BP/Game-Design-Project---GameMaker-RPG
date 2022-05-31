@@ -6,6 +6,7 @@ globalvar global_arr_inv, global_arr_spellbook;
 global.purse = 0;
 global.active_quest = noone;
 global.party_leader = 0; // changes active player sprite to his chosen party member
+global.gameover = false;
 
 // WARPING
 global.player_just_warped = false;
@@ -25,6 +26,7 @@ global.player_menu_text[2] = "NEW GAME";
 global.player_menu_text[3] = "SETTINGS";
 global.player_menu_text[4] = "EXIT";
 global.player_menu_state = false;
+global.gameover_menu_state = false;
 
 // ITEMS & INVENTORY
 global.inventory_slots = 25
@@ -132,7 +134,7 @@ global_arr_players[2, MAX_AP] = 200;
 global_arr_players[2, CURR_AP] = 200;
 global_arr_players[2, EXP] = 0;
 global_arr_players[2, INITIATIVE] = 75;
-global_arr_players[2, MAX_WEAPON_DAMAGE] = 500;
+global_arr_players[2, MAX_WEAPON_DAMAGE] = 15;
 global_arr_players[2, HAS_SPELL_HEAL] = false;
 global_arr_players[2, HAS_SPELL_FIREBALL] = true;
 global_arr_players[2, HAS_SPELL_STUN] = true;

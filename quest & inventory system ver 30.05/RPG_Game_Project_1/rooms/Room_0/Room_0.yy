@@ -31,6 +31,7 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"objNPC_E_Manager","path":"objects/objNPC_E_Manager/objNPC_E_Manager.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.2576271,"scaleY":1.2117648,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":112.0,"y":16.0,"resourceVersion":"1.0","name":"inst_6B76A6B","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"objNPC_E_Manager","path":"objects/objNPC_E_Manager/objNPC_E_Manager.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.2576271,"scaleY":1.2117648,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":16.0,"resourceVersion":"1.0","name":"inst_922F4B9","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"objPlayerMenu","path":"objects/objPlayerMenu/objPlayerMenu.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":608.0,"y":16.0,"resourceVersion":"1.0","name":"inst_4BE30077","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"objGameOverMenu","path":"objects/objGameOverMenu/objGameOverMenu.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":608.0,"y":16.0,"resourceVersion":"1.0","name":"inst_55C43CE2","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Instance_Player","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Instance_Other","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":null,"x":0,"y":0,"tiles":{"SerialiseWidth":0,"SerialiseHeight":0,"TileSerialiseData":[
@@ -103,6 +104,7 @@
     {"name":"inst_6B76A6B","path":"rooms/Room_0/Room_0.yy",},
     {"name":"inst_922F4B9","path":"rooms/Room_0/Room_0.yy",},
     {"name":"inst_4BE30077","path":"rooms/Room_0/Room_0.yy",},
+    {"name":"inst_55C43CE2","path":"rooms/Room_0/Room_0.yy",},
   ],
   "inheritCreationOrder": true,
   "sequenceId": null,
