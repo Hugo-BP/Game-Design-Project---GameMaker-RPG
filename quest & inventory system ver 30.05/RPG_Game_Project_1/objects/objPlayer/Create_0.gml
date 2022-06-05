@@ -25,6 +25,7 @@ is_exploring = true;
 is_moving = false;
 is_busy = false;
 inventory_open = false;
+selected_item = noone;
 
 // Movement
 x_movement = 0;

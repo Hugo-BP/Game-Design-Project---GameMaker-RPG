@@ -302,7 +302,7 @@ switch(state)
 								selected_player++;
 								
 								// whether its meele or magic spell
-								attack_type = "MEELE";
+								attack_type = "MELEE";
 								
 								// get damage value
 								hero_max_damage = global_arr_players[curr_player.index, MAX_WEAPON_DAMAGE];
@@ -334,10 +334,10 @@ switch(state)
 									}
 								}
 								
-								// CALCULATE FINAL DAMAGE - IF MEELE THEN THERES NO SCALING
+								// CALCULATE FINAL DAMAGE - IF MELEE THEN THERES NO SCALING
 								hero_final_damage = irandom_range(round(hero_max_damage/3), hero_max_damage);
 								
-								if (curr_player.class == "Archer")
+								if (curr_player.class == "ARCHER")
 								{
 									attack_type = "RANGE"
 								}
@@ -531,10 +531,18 @@ switch(state)
 										curr_player = ds_list_find_value(ds_players, 0);
 										ds_list_delete(ds_players, 0);
 										
-										// USE ITEM
-										if (global_arr_inv[selected_player, inv_selected_item]=="HP potion")
+										// USE ITEM TODO make use item script
+										if (global_arr_inv[selected_player, inv_selected_item][item_stats.item_name] == global.item_arr[items.pot_hp_pot, item_stats.item_name])
 										{
-											ScriptApplyDamage(-25, selected_target, "HEAL");
+											ScriptApplyDamage(-global.item_arr[items.pot_hp_pot, item_stats.item_str], selected_target, "HEAL");
+										}
+										if (global_arr_inv[selected_player, inv_selected_item][item_stats.item_name] == global.item_arr[items.pot_elixir, item_stats.item_name])
+										{
+											ScriptApplyDamage(-global.item_arr[items.pot_hp_pot, item_stats.item_str], selected_target, "HEAL");
+										}
+										if (global_arr_inv[selected_player, inv_selected_item][item_stats.item_name] == global.item_arr[items.pot_ap_pot, item_stats.item_name])
+										{
+											ScriptApplyDamage(global.item_arr[items.pot_ap_pot, item_stats.item_str], selected_target, "HEAL");
 										}
 										
 										// give player obj command
@@ -850,7 +858,7 @@ switch(state)
 							npc_final_damage = irandom_range(round(selected_npc.npc_damage/3), selected_npc.npc_damage);
 							
 							// HEALER CLASS AI
-							if (selected_npc.class == "Healer" and not has_done_action)
+							if (selected_npc.class == "HEALER" and not has_done_action)
 							{
 								// OPTION - HEAL ITSELF
 								if (selected_npc.npc_curr_hp < selected_npc.npc_max_hp/3 and not has_done_action)
@@ -917,7 +925,7 @@ switch(state)
 													
 								// CHOOSE STANDARD ATTACK
 								// IF MAGE CLASS
-								if (selected_npc.class == "Mage")
+								if (selected_npc.class == "MAGE")
 								{
 									// CHOOSE STUN
 									chance_npc_uses_stun = 10;
@@ -956,7 +964,7 @@ switch(state)
 								// ELSE IF WEAPON USER
 								else 
 								{
-									if (selected_npc.class == "Archer")
+									if (selected_npc.class == "ARCHER")
 									{
 										ScriptApplyDamage(npc_final_damage, npc_player_target, "RANGE");
 									}

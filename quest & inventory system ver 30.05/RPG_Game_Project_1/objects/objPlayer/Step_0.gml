@@ -54,7 +54,7 @@ if (not global.player_menu_state)
 				sprite_index = anim_dead;
 			}
 		
-			if (is_exploring and not is_busy)
+			if (is_exploring and not is_busy and not movement_disabled)
 			{
 				// Reset Movement Values 
 				is_moving = false;
@@ -104,22 +104,16 @@ if (not global.player_menu_state)
 					break;
 				
 					case INVENTORY_KEY:
-						// open inventory/stats/equipment
-						if (not is_busy)
+						// if not using inventory yet then open it, else close it
+						if (not inventory_open)
 						{
+							// block player movement
 							inventory_open = true;
 							is_busy = true;
 							movement_disabled = true;
-						
+							
 							// OPEN INVENTORY
-						}
-						// close inventory/stats/equipment
-						if (is_busy and inventory_open)
-						{
-							is_busy = false;
-							movement_disabled = false;
-						
-							// CLOSE INVENTORY
+							ScriptInventory();
 						}
 					break;
 				

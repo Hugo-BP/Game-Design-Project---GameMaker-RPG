@@ -104,7 +104,8 @@ if (state != STAND_BY)
 				}
 				else 
 				{
-					item_text = global_arr_inv[selected_player, items];
+					item_text = global_arr_inv[selected_player, items][item_stats.item_name];
+					//item_text = global.item_arr[global_arr_inv[selected_player, items], item_stats.item_name];
 				}
 			
 				// MENU ITEMS
