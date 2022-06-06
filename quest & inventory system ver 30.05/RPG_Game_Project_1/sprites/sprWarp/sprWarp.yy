@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Utility",
-    "path": "folders/Sprites/Utility.yy",
+    "name": "Utility & Menus",
+    "path": "folders/Sprites/Utility & Menus.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprWarp",

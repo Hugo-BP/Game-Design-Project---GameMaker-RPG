@@ -40,13 +40,12 @@ for (var rows = 0 ; rows < nr_rows ; rows++)
 		draw_sprite_ext(sprInv, 0, xx, yy, 2, 2, 0, image_blend, image_alpha);
 
 	
-		//var item = global.inventory[counter, item_slot.item_id];
+		var item = global.inventory[counter, item_slot.item_id];
 			
-		//if (item > -1)
-		//{
-			//draw_sprite(sprItems, item, xx, yy);
-		//}
-		
+		if (item > -1)
+		{
+			draw_sprite_ext(sprItems, item, xx, yy, 2, 2, 0, image_blend, image_alpha);
+		}
 		
 		selected_option = sel_row + (nr_cols * sel_col);
 		if (selected_option == counter)

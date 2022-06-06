@@ -579,7 +579,9 @@ for (var slot=0 ; slot < global.inventory_slots ; slot++)
 	}
 }
 
-
+global.inventory[7, item_slot.item_id] = global.item_arr[items.fruit_apple, item_stats.item_id] ;
+global.inventory[7, item_slot.item_charges] = 1;
+global.inventory[7, item_slot.item_is_equip] = false;
 
 //SPELLBOOKS
 // SPELLBOOK MENU TEXT

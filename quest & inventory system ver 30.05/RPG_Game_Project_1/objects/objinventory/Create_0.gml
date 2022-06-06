@@ -1,4 +1,4 @@
-
+inventory_locked = false;
 state = INIT;
 
 nr_cols = sqrt(global.inventory_slots);
