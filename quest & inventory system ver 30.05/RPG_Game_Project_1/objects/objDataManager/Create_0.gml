@@ -60,6 +60,7 @@ enum item_stats
 	item_str,
 	item_equip,
 	item_charges,
+	item_stackable, // if you can have more than 1 per inv slot, ex. vs charges, if you got arrows you'd stack them all but they have 1 charge, a magic wand has 100 charges but if you get another one you want to put it in a separate inventory slot
 	item_lvl,    // level requirement
 	item_skill,  // skill to use item (ex. farming, woodcutting, mining, etc)
 	item_examine // examine text
@@ -565,8 +566,9 @@ global.item_arr[items.tool_vial, item_stats.item_charges] = 1;
 // inventory init
 enum item_slot
 {
-	item_id,
-	item_charges,		// -1 for items that dont stack
+	item_id,		// -1 for empty slot / no item
+	item_charges,	// -1 for items that dont stack
+	item_amount,
 	item_is_equip,	// T or F
 	_end
 }

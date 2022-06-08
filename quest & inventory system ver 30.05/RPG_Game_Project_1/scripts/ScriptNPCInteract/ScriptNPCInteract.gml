@@ -56,5 +56,9 @@ function ScriptNPCInteract()
 				ScriptRecruitHero(target_npc);
 			}
 		}
+		
+		return true;
 	}
+	
+	return false;
 }

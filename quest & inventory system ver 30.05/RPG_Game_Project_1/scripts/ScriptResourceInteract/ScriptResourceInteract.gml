@@ -28,7 +28,10 @@ function ScriptResourceInteract()
 		// Interaction finished
 		is_busy = false;
 		movement_disabled = false;
+		return true;
 	}
+	
+	return false;
 }
 
 
