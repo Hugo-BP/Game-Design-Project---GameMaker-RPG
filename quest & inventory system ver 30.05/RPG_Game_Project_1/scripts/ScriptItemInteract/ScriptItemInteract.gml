@@ -24,7 +24,8 @@ function ScriptItemInteract()
 					global.inventory[slot, item_slot.item_id] = global.item_arr[target.item_type, item_stats.item_id];
 					global.inventory[slot, item_slot.item_charges] = 1;
 					global.inventory[slot, item_slot.item_amount] = 1;
-					global.inventory[slot, item_slot.item_is_equip] = false;
+					
+					global.inventory[slot, item_slot.item_is_equip] = false; // TODO this isnt that well thought out
 					
 					added_item = true;
 					break;

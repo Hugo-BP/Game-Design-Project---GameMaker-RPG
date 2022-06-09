@@ -122,22 +122,22 @@ if (not global.player_menu_state)
 						if (not is_busy)	
 						{
 							var interaction = false;
-						// NPC Interactions
+							// NPC Interactions
 							if (not interaction)
 							{
 								interaction = ScriptNPCInteract();	
 							}
-						// Resources
+							// Resources
 							if (not interaction)
 							{
 								interaction = ScriptResourceInteract();
 							}
-						// Workbench (crafting)
+							// Workbench (crafting)
 							if (not interaction)
 							{
 								interaction = ScriptWorkbenchInteract();
 							}
-						// Pick up item 
+							// Pick up item 
 							if (not interaction)
 							{
 								interaction = ScriptItemInteract();
