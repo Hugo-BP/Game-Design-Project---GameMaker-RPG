@@ -16,8 +16,8 @@ global.player_warp_to_y = TILESIZE*3;
 global.player_prev_room = Room_0;
 
 // COMBAT
-global.player_x_before_battle = TILESIZE*3;
-global.player_y_before_battle = TILESIZE*3;
+global.player_x_before_battle = 120;
+global.player_y_before_battle = 310;
 global.curr_active_battle_spawn = noone;
 
 global.player_menu_text[0] = "CONTINUE";

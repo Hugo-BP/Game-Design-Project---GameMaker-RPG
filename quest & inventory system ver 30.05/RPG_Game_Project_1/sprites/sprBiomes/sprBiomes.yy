@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 127,
+  "bbox_right": 143,
   "bbox_top": 0,
-  "bbox_bottom": 31,
+  "bbox_bottom": 143,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 128,
-  "height": 32,
+  "width": 144,
+  "height": 144,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e5cb85e1-33e8-49b7-9659-8f75fb249f08","path":"sprites/sprBiomes/sprBiomes.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e5cb85e1-33e8-49b7-9659-8f75fb249f08","path":"sprites/sprBiomes/sprBiomes.yy",},"LayerId":{"name":"60632a76-4835-4288-8fd9-8ac0227a8bef","path":"sprites/sprBiomes/sprBiomes.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBiomes","path":"sprites/sprBiomes/sprBiomes.yy",},"resourceVersion":"1.0","name":"e5cb85e1-33e8-49b7-9659-8f75fb249f08","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"b4e4eacb-c97b-4252-ac1d-5347740f06c7","path":"sprites/sprBiomes/sprBiomes.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"b4e4eacb-c97b-4252-ac1d-5347740f06c7","path":"sprites/sprBiomes/sprBiomes.yy",},"LayerId":{"name":"f437f84c-8b3e-42f9-b530-b0687fe922e3","path":"sprites/sprBiomes/sprBiomes.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprBiomes","path":"sprites/sprBiomes/sprBiomes.yy",},"resourceVersion":"1.0","name":"b4e4eacb-c97b-4252-ac1d-5347740f06c7","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"sprBiomes","path":"sprites/sprBiomes/sprBiomes.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"67b5646c-21f2-45fc-b7a8-60297ff3f014","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e5cb85e1-33e8-49b7-9659-8f75fb249f08","path":"sprites/sprBiomes/sprBiomes.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ffdb1f85-de91-46df-8e36-404253d39997","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b4e4eacb-c97b-4252-ac1d-5347740f06c7","path":"sprites/sprBiomes/sprBiomes.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"60632a76-4835-4288-8fd9-8ac0227a8bef","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f437f84c-8b3e-42f9-b530-b0687fe922e3","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
