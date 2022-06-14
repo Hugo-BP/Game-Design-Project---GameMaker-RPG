@@ -33,3 +33,4 @@ anim_idle = sprDefault;
 anim_attack = sprDefault; 
 anim_dead = sprDefault;
 
+show_debug_message("CREATE NPC")

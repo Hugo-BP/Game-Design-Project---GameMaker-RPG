@@ -78,6 +78,9 @@ enum item_class
 enum items
 {
 	fruit_apple,
+	pot_hp_pot,
+	pot_ap_pot,
+	key,
 	fruit_orange,
 	fruit_lemon,
 	produce_grain,
@@ -113,8 +116,7 @@ enum items
 	sec_newts_eye,
 	sec_ivy_leaf,
 	sec_spider_legs,
-	pot_hp_pot,
-	pot_ap_pot,
+	
 	pot_elixir,
 	consumable_bread,
 	consumable_beer,
@@ -165,6 +167,13 @@ enum items
 	amulet_eagle_eye_charm
 }
 
+global.item_arr[items.key, item_stats.item_id] = items.key;
+global.item_arr[items.key, item_stats.item_name] = "Brass Key";
+global.item_arr[items.key, item_stats.item_value] = 0;
+global.item_arr[items.key, item_stats.item_class] = item_class.tool;
+global.item_arr[items.key, item_stats.item_str] = 0;
+global.item_arr[items.key, item_stats.item_equip] = equip_slot.none;
+global.item_arr[items.key, item_stats.item_charges] = 1;
 
 global.item_arr[items.fruit_apple, item_stats.item_id] = items.fruit_apple;
 global.item_arr[items.fruit_apple, item_stats.item_name] = "Apple";
@@ -585,6 +594,14 @@ global.inventory[7, item_slot.item_id] = global.item_arr[items.fruit_apple, item
 global.inventory[7, item_slot.item_charges] = 1;
 global.inventory[7, item_slot.item_is_equip] = false;
 
+global.inventory[9, item_slot.item_id] = global.item_arr[items.pot_hp_pot, item_stats.item_id] ;
+global.inventory[9, item_slot.item_charges] = 1;
+global.inventory[9, item_slot.item_is_equip] = false;
+
+global.inventory[10, item_slot.item_id] = global.item_arr[items.pot_ap_pot, item_stats.item_id] ;
+global.inventory[10, item_slot.item_charges] = 1;
+global.inventory[10, item_slot.item_is_equip] = false;
+
 //SPELLBOOKS
 // SPELLBOOK MENU TEXT
 global_arr_spellbook[HAS_SPELL_HEAL] = "HEAL";
@@ -657,7 +674,7 @@ global_arr_players[1, HAS_SPELL_STUN] = false;
 global_arr_players[1, HAS_SPELL_CORRUPT] = false;
 global_arr_players[1, ANIM_IDLE] = sprArcherIdle;
 global_arr_players[1, ANIM_MOVE] = sprKnightMove;
-global_arr_players[1, ANIM_ATTACK] = sprKnightAttack;
+global_arr_players[1, ANIM_ATTACK] = sprArcherAttack;
 global_arr_players[1, ANIM_DEAD] = sprDead;
 
 global_arr_players[2, NAME] = "BLUE";
@@ -676,7 +693,7 @@ global_arr_players[2, HAS_SPELL_STUN] = true;
 global_arr_players[2, HAS_SPELL_CORRUPT] = true;
 global_arr_players[2, ANIM_IDLE] = sprMageIdle;
 global_arr_players[2, ANIM_MOVE] = sprKnightMove;
-global_arr_players[2, ANIM_ATTACK] = sprKnightAttack;
+global_arr_players[2, ANIM_ATTACK] = sprMageAttack;
 global_arr_players[2, ANIM_DEAD] = sprDead;
 
 global_arr_players[3, NAME] = "YELLOW";
@@ -693,9 +710,9 @@ global_arr_players[3, HAS_SPELL_HEAL] = true;
 global_arr_players[3, HAS_SPELL_FIREBALL] = false;
 global_arr_players[3, HAS_SPELL_STUN] = false;
 global_arr_players[3, HAS_SPELL_CORRUPT] = false;
-global_arr_players[3, ANIM_IDLE] = SprHealerIdle;
+global_arr_players[3, ANIM_IDLE] = sprHealerIdle;
 global_arr_players[3, ANIM_MOVE] = sprKnightMove;
-global_arr_players[3, ANIM_ATTACK] = sprKnightAttack;
+global_arr_players[3, ANIM_ATTACK] = sprHealerAttack;
 global_arr_players[3, ANIM_DEAD] = sprDead;
 
 #endregion
@@ -727,36 +744,36 @@ lich
 global_arr_enemies[enemies.skeleton_knight, NAME] = "Skeleton Knight";
 global_arr_enemies[enemies.skeleton_knight, CLASS] = "Knight";
 global_arr_enemies[enemies.skeleton_knight, LEVEL] = 8;
-global_arr_enemies[enemies.skeleton_knight, MAX_HP] = 400;
-global_arr_enemies[enemies.skeleton_knight, CURR_HP] = 400;
+global_arr_enemies[enemies.skeleton_knight, MAX_HP] = 200;
+global_arr_enemies[enemies.skeleton_knight, CURR_HP] = 200;
 global_arr_enemies[enemies.skeleton_knight, MAX_AP] = 20;
 global_arr_enemies[enemies.skeleton_knight, CURR_AP] = 20;
 global_arr_enemies[enemies.skeleton_knight, EXP] = 50;
 global_arr_enemies[enemies.skeleton_knight, INITIATIVE] = 100;
 global_arr_enemies[enemies.skeleton_knight, MAX_WEAPON_DAMAGE] = 25;
 global_arr_enemies[enemies.skeleton_knight, ANIM_IDLE] = sprSkelKnightIdle;
-global_arr_enemies[enemies.skeleton_knight, ANIM_ATTACK] = sprDemonAttack;
+global_arr_enemies[enemies.skeleton_knight, ANIM_ATTACK] = sprSkelKnightAttack;
 global_arr_enemies[enemies.skeleton_knight, ANIM_DEAD] = sprDead;
 
 global_arr_enemies[enemies.skeleton_archer, NAME] = "Skeleton Archer";
 global_arr_enemies[enemies.skeleton_archer, CLASS] = "Archer";
 global_arr_enemies[enemies.skeleton_archer, LEVEL] = 8;
-global_arr_enemies[enemies.skeleton_archer, MAX_HP] = 200;
-global_arr_enemies[enemies.skeleton_archer, CURR_HP] = 200;
+global_arr_enemies[enemies.skeleton_archer, MAX_HP] = 100;
+global_arr_enemies[enemies.skeleton_archer, CURR_HP] = 100;
 global_arr_enemies[enemies.skeleton_archer, MAX_AP] = 20;
 global_arr_enemies[enemies.skeleton_archer, CURR_AP] = 20;
 global_arr_enemies[enemies.skeleton_archer, EXP] = 50;
 global_arr_enemies[enemies.skeleton_archer, INITIATIVE] = 100;
 global_arr_enemies[enemies.skeleton_archer, MAX_WEAPON_DAMAGE] = 25;
 global_arr_enemies[enemies.skeleton_archer, ANIM_IDLE] = sprSkelArcherIdle;
-global_arr_enemies[enemies.skeleton_archer, ANIM_ATTACK] = sprDemonAttack;
+global_arr_enemies[enemies.skeleton_archer, ANIM_ATTACK] = sprSkelArcherAttack;
 global_arr_enemies[enemies.skeleton_archer, ANIM_DEAD] = sprDead;
 
 global_arr_enemies[enemies.demon, NAME] = "Demon";
 global_arr_enemies[enemies.demon, CLASS] = "Mage";
 global_arr_enemies[enemies.demon, LEVEL] = 15;
-global_arr_enemies[enemies.demon, MAX_HP] = 1;
-global_arr_enemies[enemies.demon, CURR_HP] = 1;
+global_arr_enemies[enemies.demon, MAX_HP] = 100;
+global_arr_enemies[enemies.demon, CURR_HP] = 100;
 global_arr_enemies[enemies.demon, MAX_AP] = 20;
 global_arr_enemies[enemies.demon, CURR_AP] = 20;
 global_arr_enemies[enemies.demon, EXP] = 100;
@@ -777,9 +794,37 @@ global_arr_enemies[enemies.evil_eye, EXP] = 20;
 global_arr_enemies[enemies.evil_eye, INITIATIVE] = 20;
 global_arr_enemies[enemies.evil_eye, MAX_WEAPON_DAMAGE] = 25;
 global_arr_enemies[enemies.evil_eye, ANIM_IDLE] = sprEvilEyeIdle;
-global_arr_enemies[enemies.evil_eye, ANIM_ATTACK] = sprDemonAttack;
+global_arr_enemies[enemies.evil_eye, ANIM_ATTACK] = sprEvilEyeAttack;
 global_arr_enemies[enemies.evil_eye, ANIM_DEAD] = sprDead;
 
+global_arr_enemies[enemies.zombie, NAME] = "Zombie";
+global_arr_enemies[enemies.zombie, CLASS] = "Knight";
+global_arr_enemies[enemies.zombie, LEVEL] = 8;
+global_arr_enemies[enemies.zombie, MAX_HP] = 400;
+global_arr_enemies[enemies.zombie, CURR_HP] = 400;
+global_arr_enemies[enemies.zombie, MAX_AP] = 20;
+global_arr_enemies[enemies.zombie, CURR_AP] = 20;
+global_arr_enemies[enemies.zombie, EXP] = 50;
+global_arr_enemies[enemies.zombie, INITIATIVE] = 1;
+global_arr_enemies[enemies.zombie, MAX_WEAPON_DAMAGE] = 10;
+global_arr_enemies[enemies.zombie, ANIM_IDLE] = sprZombieIdle;
+global_arr_enemies[enemies.zombie, ANIM_ATTACK] = sprZombieAttack;
+global_arr_enemies[enemies.zombie, ANIM_DEAD] = sprDead;
+
+
+global_arr_enemies[enemies.lich, NAME] = "Lich";
+global_arr_enemies[enemies.lich, CLASS] = "Mage";
+global_arr_enemies[enemies.lich, LEVEL] = 25;
+global_arr_enemies[enemies.lich, MAX_HP] = 300;
+global_arr_enemies[enemies.lich, CURR_HP] = 300;
+global_arr_enemies[enemies.lich, MAX_AP] = 20;
+global_arr_enemies[enemies.lich, CURR_AP] = 20;
+global_arr_enemies[enemies.lich, EXP] = 100;
+global_arr_enemies[enemies.lich, INITIATIVE] = 1000;
+global_arr_enemies[enemies.lich, MAX_WEAPON_DAMAGE] = 50;
+global_arr_enemies[enemies.lich, ANIM_IDLE] = sprLichIdle;
+global_arr_enemies[enemies.lich, ANIM_ATTACK] = sprLichAttack;
+global_arr_enemies[enemies.lich, ANIM_DEAD] = sprDead;
 
 #endregion
 

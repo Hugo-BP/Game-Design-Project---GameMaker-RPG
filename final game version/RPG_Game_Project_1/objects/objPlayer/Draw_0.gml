@@ -1,5 +1,10 @@
 if (state == READY)
 {
+	if (is_attacking)
+	{
+		sprite_index = anim_attack;
+	}
+	
 	draw_self();
 	
 	if (is_in_battle)

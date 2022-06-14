@@ -59,9 +59,13 @@ switch(state)
 			
 			// ANIMATION
 			player.anim_idle = global_arr_players[player.index, ANIM_IDLE]; 
+			show_debug_message("idle")
+			show_debug_message(global_arr_players[player.index, ANIM_IDLE])
 			player.anim_attack = global_arr_players[player.index, ANIM_ATTACK]; 
-			player.anim_dead = global_arr_players[player.index, ANIM_ATTACK]; 
-
+			show_debug_message("atk")
+			show_debug_message(global_arr_players[player.index, ANIM_ATTACK])
+			player.anim_dead = global_arr_players[player.index, ANIM_DEAD]; 
+			
 			// for menu selecting a player to attack
 			ds_list_add(ds_selectable_player, player);
 			
@@ -343,6 +347,7 @@ switch(state)
 								}
 								
 								// SCRIP WILL HANDLE DAMAGE AND DAMAGE VISUALS
+								curr_player.is_attacking = true;
 								ScriptApplyDamage(hero_final_damage, selected_target, attack_type);
 								
 								// AREA OF EFFECT SPELL

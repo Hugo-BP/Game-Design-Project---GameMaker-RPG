@@ -25,6 +25,7 @@ switch(state)
 				x += (sprite_width);
 			}
 			sprite_index = anim_attack;
+			
 			attack_animation_timer++;
 			if (attack_animation_timer >= attack_animation_duration)
 			{

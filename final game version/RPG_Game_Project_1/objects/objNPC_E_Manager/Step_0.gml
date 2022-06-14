@@ -41,7 +41,7 @@ if (state == INIT)
 	for (var n=0 ; n < party_size ; n++)
 	{	
 		// choose random classes of units
-		enemy = choose(enemies.skeleton_knight, enemies.skeleton_archer, enemies.demon, enemies.evil_eye);
+		enemy = choose(enemies.skeleton_knight,enemies.lich, enemies.skeleton_archer, enemies.zombie, enemies.demon, enemies.evil_eye);
 		spawn.units[n] = global_arr_enemies[enemy];
 	}
 	// Spawner Avatar is a random unit from the chosen ones

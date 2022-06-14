@@ -1,7 +1,7 @@
 image_speed = 0;
 state = INIT;
 entity_type = "PLAYER";
-index = global.party_leader;
+index = 0;
 
 // statuses
 // BATTLE STATUSES
@@ -50,7 +50,8 @@ tilemap_id = layer_tilemap_get_id(layer_id);
 // Animations
 curr_frame = 0; 
 anim_idle = global_arr_players[index, ANIM_IDLE]; 
-anim_move = global_arr_players[index, ANIM_MOVE]; ; 
-anim_attack = global_arr_players[index, ANIM_ATTACK]; ; 
-anim_dead = global_arr_players[index, ANIM_DEAD]; ;
+anim_move = global_arr_players[index, ANIM_MOVE]; 
+anim_attack = global_arr_players[index, ANIM_ATTACK]; 
+anim_dead = global_arr_players[index, ANIM_DEAD]; 
 
+show_debug_message("CREATE PL")

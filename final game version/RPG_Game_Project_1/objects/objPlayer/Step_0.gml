@@ -39,6 +39,7 @@ if (not global.player_menu_state)
 					x -= (sprite_width);
 				}
 				sprite_index = anim_attack;
+				
 				attack_animation_timer++;
 				if (attack_animation_timer >= attack_animation_duration)
 				{
@@ -47,6 +48,7 @@ if (not global.player_menu_state)
 					attack_animation_timer = 0;
 					is_attacking = false;
 				}
+				
 			}
 		
 			if (is_dead)
