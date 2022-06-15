@@ -123,7 +123,7 @@
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2147483648,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-],},"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Tiles_Collision","tags":[],"resourceType":"GMRTileLayer",},
+],},"visible":false,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Tiles_Collision","tags":[],"resourceType":"GMRTileLayer",},
     {"tilesetId":{"name":"tileGrass","path":"tilesets/tileGrass/tileGrass.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":40,"SerialiseHeight":23,"TileSerialiseData":[
 21,21,21,21,21,2147483648,2147483648,2147483648,32,2147483648,2147483648,2147483648,16,19,16,32,32,19,16,10,10,45,45,45,45,45,45,45,19,28,19,19,19,2147483648,2147483648,19,19,2147483648,2147483648,2147483648,
 21,21,21,21,21,2147483648,2147483648,2147483648,29,29,29,29,0,29,32,32,32,23,23,23,23,23,45,45,45,45,45,45,19,33,33,19,2147483648,2147483648,2147483648,2147483648,2147483648,33,2147483648,33,
