@@ -17,7 +17,7 @@ if (state == READY)  {
 			global_arr_players[2, CURR_AP] = 200;
 			global_arr_players[2, EXP] = 0;
 			global_arr_players[2, INITIATIVE] = 75;
-			global_arr_players[2, MAX_WEAPON_DAMAGE] = 1000;
+			global_arr_players[2, MAX_WEAPON_DAMAGE] = 15;
 			global_arr_players[2, HAS_SPELL_HEAL] = false;
 			global_arr_players[2, HAS_SPELL_FIREBALL] = true;
 			global_arr_players[2, HAS_SPELL_STUN] = true;
