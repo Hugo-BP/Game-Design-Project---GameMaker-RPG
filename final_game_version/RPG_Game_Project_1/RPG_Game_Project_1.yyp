@@ -12,6 +12,7 @@
     {"id":{"name":"spr_load","path":"sprites/spr_load/spr_load.yy",},"order":2,},
     {"id":{"name":"snd_taking_hit","path":"sounds/snd_taking_hit/snd_taking_hit.yy",},"order":3,},
     {"id":{"name":"ScriptGenericMenu","path":"scripts/ScriptGenericMenu/ScriptGenericMenu.yy",},"order":4,},
+    {"id":{"name":"objGameEnd","path":"objects/objGameEnd/objGameEnd.yy",},"order":6,},
     {"id":{"name":"sprHealerAttack","path":"sprites/sprHealerAttack/sprHealerAttack.yy",},"order":1,},
     {"id":{"name":"ScriptCallQuest","path":"scripts/ScriptCallQuest/ScriptCallQuest.yy",},"order":3,},
     {"id":{"name":"ScriptInventory","path":"scripts/ScriptInventory/ScriptInventory.yy",},"order":4,},

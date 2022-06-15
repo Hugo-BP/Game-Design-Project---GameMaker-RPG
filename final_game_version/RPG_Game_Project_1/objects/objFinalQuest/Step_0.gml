@@ -1,8 +1,8 @@
-/// @description Insert description here
-// You can write your code in this editor
+// useless
 
-if not instance_exists(objBattleSpawner)
+if not instance_exists(objBattleSpawner) or not instance_exists(objNPC_Boss)
 {
+	show_debug_message("boss dead")
 	global.finishedRoom1 = true; 
 	
 	with(objNPC_Boss)

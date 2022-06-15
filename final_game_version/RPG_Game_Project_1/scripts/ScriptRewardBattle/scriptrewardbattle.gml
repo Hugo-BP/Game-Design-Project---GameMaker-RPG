@@ -7,6 +7,11 @@ function ScriptRewardBattle()
 		for (var n=0 ; n < array_length(global_spawner_units) ; n++)
 		{
 			global_arr_players[p, EXP] += global_spawner_units[n, EXP];
+			
+			if (global_spawner_units[n, NAME] == "Lich")
+			{
+				global.finishedRoom1 = true; 
+			}
 		}	
 	}
 	// GOLD & DROPS
